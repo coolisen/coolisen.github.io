@@ -1,0 +1,549 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <link rel="dns-prefetch" href="//cdn.jsdelivr.net" />
+    <link rel="dns-prefetch" href="//images1-focus-opensocial.googleusercontent.com" />
+    <link rel="dns-prefetch" href="//static.addtoany.com" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="msvalidate.01" content="9102A1E6CD03B94FECA1FB775C1B5BC6">
+    <meta name="yandex-verification" content="5db0f8d4411c73f0">
+    <meta name="google-site-verification" content="NjtcY8LZZgJPLQ8ewKSWPHsaq30jrv4Ki5Qax3WBRp0">
+    <meta charset="UTF-8" />
+    <title>Maximum Likelihood, clearly explained!!!</title>
+    <meta name="description" content="If you hang out around statisticians long enough, sooner or later someone is going to mumble &quot;maximum likelihood&quot; and everyone ...">
+	<meta name="keywords" content="StatQuest,Joshua Starmer,Maximum Likelihood">
+    <meta property="og:site_name" content="Coolisen">
+    <meta property="og:url" content="https://coolisen.github.io/maximum-likelihood-clearly-explained.html">
+    <meta property="og:title" content="Maximum Likelihood, clearly explained!!!">
+    <meta property="og:image" content="https://i.ytimg.com/vi/XepXtl9YKwc/hqdefault.jpg">
+    <meta property="og:description" content="If you hang out around statisticians long enough, sooner or later someone is going to mumble &quot;maximum likelihood&quot; and everyone ...">
+    <meta name='twitter:card' content='summary_large_image' />
+    <link rel="canonical" href="https://coolisen.github.io/maximum-likelihood-clearly-explained.html" />
+    <link rel="stylesheet" href="https://coolisen.github.io/inc/main.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css">
+</head>
+<body class="bg-light">
+    <nav class="navbar mb-3 navbar-expand-lg navbar-light bg-white mb-4 shadow-sm">
+        <div class="container py-2"><a class="navbar-brand" href="https://coolisen.github.io/">Coolisen</a><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-urls" aria-controls="navbar-urls" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <form
+                action="/search/" class="my-2 my-lg-0 offset-md-2 col-md-6 col-sm-12 px-0 mr-auto">
+                <div class="input-group"><input name="s" class="form-control rounded-0 py-2" type="text" placeholder="video search..." id="example-search-input"><span class="input-group-append"><button aria-label="search" role="button" class="btn btn-secondary rounded-0" type="submit"><span class="px-2"><svg class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path></svg></span></button>
+                    </span>
+                </div>
+                </form>
+                <div class="collapse navbar-collapse flex-md-grow-0" id="navbar-urls">
+
+                </div>
+        </div>
+    </nav>
+    <div class="container min-height-62" >
+        <div class="resp-container" id="top_720"></div>
+        <div class="row">
+            <div class="col-12 col-md-8">
+                <div class="bg-white"><noscript><a href="https://www.youtube.com/watch?v=XepXtl9YKwc"><img alt="Maximum Likelihood, clearly explained!!!" src="https://i.ytimg.com/vi/XepXtl9YKwc/hqdefault.jpg" /></a></noscript>
+                    <div id="video-player"></div>
+                    <div class="p-3">
+                        <h1 class="h5 video-title bwr">Maximum Likelihood, clearly explained!!!</h1>
+                        <div class="py-1 row">
+                            <div class="col-12 col-md-6 my-auto"><b class="text-danger">Share this & earn $10</b></div>
+                            <div class="col-12 col-md-6">
+                                <div class="a2a_kit a2a_kit_size_32 a2a_default_style"><a class="a2a_dd" href="https://www.addtoany.com/share"></a><a class="a2a_button_facebook"></a><a class="a2a_button_twitter"></a><a class="a2a_button_reddit"></a><a class="a2a_button_facebook_messenger"></a><a class="a2a_button_whatsapp"></a></div>
+                            </div>
+                        </div>
+                        <div align="center" class="py-1">
+
+                        </div>
+                        <div class="py-1">
+                            <div class="row">
+                                <div class="col-12 col-md-6">
+                                    <div class="mb-2 bwr"><strong>StatQuest with Josh Starmer</strong><br> Published at : 07 Oct 2021  </div>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <div class="h-100 d-flex align-items-center justify-content-center"><a  target="_blank" rel="noopener" class="btn btn-block btn-danger bwr" href="https://www.youtube.com/watch?v=XepXtl9YKwc">Subscribe to StatQuest with Josh Starmer</a></div>
+                                </div>
+                            </div>
+                            <div class="resp-container" id="in_post_bottomads"></div>
+                        </div>
+                        <div class="py-1">
+                            <div class="row">
+                                <div class="col-12 col-md-6">
+                                    <div class="text-center bg-light mb-2 p-1 bwr"><span><span class="pr-1"><svg class="svg-inline--fa fa-eye fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M569.354 231.631C512.969 135.949 407.81 72 288 72 168.14 72 63.004 135.994 6.646 231.631a47.999 47.999 0 0 0 0 48.739C63.031 376.051 168.19 440 288 440c119.86 0 224.996-63.994 281.354-159.631a47.997 47.997 0 0 0 0-48.738zM288 392c-75.162 0-136-60.827-136-136 0-75.162 60.826-136 136-136 75.162 0 136 60.826 136 136 0 75.162-60.826 136-136 136zm104-136c0 57.438-46.562 104-104 104s-104-46.562-104-104c0-17.708 4.431-34.379 12.236-48.973l-.001.032c0 23.651 19.173 42.823 42.824 42.823s42.824-19.173 42.824-42.823c0-23.651-19.173-42.824-42.824-42.824l-.032.001C253.621 156.431 270.292 152 288 152c57.438 0 104 46.562 104 104z"></path></svg></span>                                        745703 views </span>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="text-center bg-light p-1 bwr"><span><span class="pr-1"><svg class="svg-inline--fa fa-thumbs-up fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M104 224H24c-13.255 0-24 10.745-24 24v240c0 13.255 10.745 24 24 24h80c13.255 0 24-10.745 24-24V248c0-13.255-10.745-24-24-24zM64 472c-13.255 0-24-10.745-24-24s10.745-24 24-24 24 10.745 24 24-10.745 24-24 24zM384 81.452c0 42.416-25.97 66.208-33.277 94.548h101.723c33.397 0 59.397 27.746 59.553 58.098.084 17.938-7.546 37.249-19.439 49.197l-.11.11c9.836 23.337 8.237 56.037-9.308 79.469 8.681 25.895-.069 57.704-16.382 74.757 4.298 17.598 2.244 32.575-6.148 44.632C440.202 511.587 389.616 512 346.839 512l-2.845-.001c-48.287-.017-87.806-17.598-119.56-31.725-15.957-7.099-36.821-15.887-52.651-16.178-6.54-.12-11.783-5.457-11.783-11.998v-213.77c0-3.2 1.282-6.271 3.558-8.521 39.614-39.144 56.648-80.587 89.117-113.111 14.804-14.832 20.188-37.236 25.393-58.902C282.515 39.293 291.817 0 312 0c24 0 72 8 72 81.452z"></path></svg></span>                                                16213 </span>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="text-center bg-light p-1 bwr"><span><span class="pr-1"><svg class="svg-inline--fa fa-thumbs-down fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M0 56v240c0 13.255 10.745 24 24 24h80c13.255 0 24-10.745 24-24V56c0-13.255-10.745-24-24-24H24C10.745 32 0 42.745 0 56zm40 200c0-13.255 10.745-24 24-24s24 10.745 24 24-10.745 24-24 24-24-10.745-24-24zm272 256c-20.183 0-29.485-39.293-33.931-57.795-5.206-21.666-10.589-44.07-25.393-58.902-32.469-32.524-49.503-73.967-89.117-113.111a11.98 11.98 0 0 1-3.558-8.521V59.901c0-6.541 5.243-11.878 11.783-11.998 15.831-.29 36.694-9.079 52.651-16.178C256.189 17.598 295.709.017 343.995 0h2.844c42.777 0 93.363.413 113.774 29.737 8.392 12.057 10.446 27.034 6.148 44.632 16.312 17.053 25.063 48.863 16.382 74.757 17.544 23.432 19.143 56.132 9.308 79.469l.11.11c11.893 11.949 19.523 31.259 19.439 49.197-.156 30.352-26.157 58.098-59.553 58.098H350.723C358.03 364.34 384 388.132 384 430.548 384 504 336 512 312 512z"></path></svg></span>                                                370 </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="py-1 d-md-block bwr" id="video-description"><p>If you hang out around statisticians long enough, sooner or later someone is going to mumble "maximum likelihood" and everyone will knowingly nod. After this video, so can you!<br />Also, some viewers asked for a worked out example that includes the math. Here it is! (you may need to click on the "Show More" button below to see the link) <a rel="nofollow" target="blank" href="https://youtu.be/p3T-_LMrvBc">https://youtu.be/p3T-_LMrvBc</a><br /><br />⭐ NOTE: When I code, I use Kite, a free AI-powered coding assistant that will help you code faster and smarter. The Kite plugin integrates with all the top editors and IDEs to give you smart completions and documentation while you’re typing. I love it! <a rel="nofollow" target="blank" href="https://www.kite.com/get-kite/?utm_medium=referral&amp;utm_source=youtube&amp;utm_campaign=statquest&amp;utm_content=description-only">https://www.kite.com/get-kite/?utm_medium=referral&amp;utm_source=youtube&amp;utm_campaign=statquest&amp;utm_content=description-only</a><br /><br />For a complete index of all the StatQuest videos, check out:<br /><a rel="nofollow" target="blank" href="https://statquest.org/video-index/">https://statquest.org/video-index/</a><br /><br />If you’d like to support StatQuest, please consider…<br />Patreon: <a rel="nofollow" target="blank" href="https://www.patreon.com/statquest">https://www.patreon.com/statquest</a><br />…or…<br />YouTube Membership: <a rel="nofollow" target="blank" href="https://www.youtube.com/channel/UCtYLUTtgS3k1Fg4y5tAhLbw/join">https://www.youtube.com/channel/UCtYLUTtgS3k1Fg4y5tAhLbw/join</a><br /><br />…a cool StatQuest t-shirt or sweatshirt: <br /><a rel="nofollow" target="blank" href="https://shop.spreadshirt.com/statquest-with-josh-starmer/">https://shop.spreadshirt.com/statquest-with-josh-starmer/</a><br /><br />…buying one or two of my songs (or go large and get a whole album!)<br /><a rel="nofollow" target="blank" href="https://joshuastarmer.bandcamp.com/">https://joshuastarmer.bandcamp.com/</a><br /><br />…or just donating to StatQuest!<br /><a rel="nofollow" target="blank" href="https://www.paypal.me/statquest">https://www.paypal.me/statquest</a><br /><br />Lastly, if you want to keep up with me as I research and create new StatQuests, follow me on twitter:<br /><a rel="nofollow" target="blank" href="https://twitter.com/joshuastarmer">https://twitter.com/joshuastarmer</a><br /><br />0:00 Awesome song and introduction<br />0:34 Motivation for MLE<br />1:12 Overview of the Normal Distribution<br />2:06 Thinking about where to center the distribution<br />3:25 Using MLE to find the optimal location for the center<br />4:27 Using MLE to find the optimal standard deviation<br />5:19 Probability vs Likelihood<br /><br /><br /><br />#statquest #MLE</p>
+</div>
+                        <div class="d-none"><span>StatQuest</span><span>Joshua Starmer</span><span>Maximum Likelihood</span></div>
+                        <hr/>
+                        <div class="py-3"><div class="resp-container" id="extra_bottomads"><iframe data-aa="1768017" src="//ad.a-ads.com/1768017?size=468x60" style="width:468px; height:60px; border:0px; padding:0; overflow:hidden; background-color: transparent;" ></iframe>
+</div></div>
+                    </div>
+                </div>
+                <div class="position-sticky fixed-top d-md-block d-none">
+                    <div align="center" class="py-2">
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4">
+            <div class="mb-4">
+                <div class="resp-container py-3" id="sidebar_300"></div>
+            </div>
+                
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/the-waterboys-the-whole-of-the-moon-official-music-video.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/sBW8Vnp8BzU/mqdefault.jpg" alt="The Waterboys - The Whole of the Moon (Official Music Video)">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">The Waterboys - The Whole of the Moon (Official Music Video)</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/how-to-use-a-snorkel-for-diving-down-underwater.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/e14zU6GDJAE/mqdefault.jpg" alt="How to use a snorkel for diving down underwater">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">How to use a snorkel for diving down underwater</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/future-mask-off-official-music-video.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/xvZqHgFz51I/mqdefault.jpg" alt="Future - Mask Off (Official Music Video)">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Future - Mask Off (Official Music Video)</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/easy-steps-to-get-out-of-debt-according-to-a-certified-financial-plann.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/CHiOBzqcMV8/mqdefault.jpg" alt="Easy Steps To Get Out Of Debt, According To A Certified Financial Planner">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Easy Steps To Get Out Of Debt, According To A Certified Financial Planner</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/i-think-those-twins-have-a-disease-of-flexibleness.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/1CJkkOq-vxg/mqdefault.jpg" alt="I think those twins have a disease of flexibleness">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">I think those twins have a disease of flexibleness</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/texas-in-demand-official-video.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/X4-gNN8WRHo/mqdefault.jpg" alt="Texas - In Demand (Official Video)">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Texas - In Demand (Official Video)</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/farmtech-2012-open-communication-is-a-major-factor-in-succession-plann.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/__bZ-TR-Qc8/mqdefault.jpg" alt="FarmTech 2012 - Open Communication is A Major Factor In Succession Planning">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">FarmTech 2012 - Open Communication is A Major Factor In Succession Planning</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/alicia-keys-underdog-official-video.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/izyZLKIWGiA/mqdefault.jpg" alt="Alicia Keys - Underdog (Official Video)">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Alicia Keys - Underdog (Official Video)</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/producers-and-consumers-for-kids-classroom-video.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/OAP_JlWLa4k/mqdefault.jpg" alt="Producers and Consumers for Kids | Classroom Video">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Producers and Consumers for Kids | Classroom Video</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/the-boys-answered-your-questions-this-week-sawaalsaturday-mostlysane.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/0PO8u5-6wN4/mqdefault.jpg" alt="The Boys Answered Your Questions This Week!! | #SawaalSaturday | MostlySane">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">The Boys Answered Your Questions This Week!! | #SawaalSaturday | MostlySane</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/warm-light-filled-contemporary-home-in-los-angeles-with-sophisticated.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/9wdmatFRats/mqdefault.jpg" alt="Warm light filled contemporary home in Los Angeles with sophisticated landscape design">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Warm light filled contemporary home in Los Angeles with sophisticated landscape design</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/david-yang-a-whole-lot-official-music-video.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/SdtrsnurbKI/mqdefault.jpg" alt="David Yang - A Whole Lot (Official Music Video)">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">David Yang - A Whole Lot (Official Music Video)</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/the-word-anticipate-build-useful-english-vocabulary.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/XIM2Tewr29U/mqdefault.jpg" alt="The Word ANTICIPATE | Build Useful English Vocabulary">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">The Word ANTICIPATE | Build Useful English Vocabulary</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/a-bathroom-that-works.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/CA9xYjwTxZY/mqdefault.jpg" alt="A Bathroom That Works">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">A Bathroom That Works</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/modern-day.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/UHcmhY7XNps/mqdefault.jpg" alt="Modern Day">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Modern Day</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/could-video-games-help-kids-shed-extra-pounds.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/_QPr_pcoKOg/mqdefault.jpg" alt="Could video games help kids shed extra pounds?">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Could video games help kids shed extra pounds?</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/panic-buying-leads-to-u-k-fuel-shortage.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/vmMtWo5SbuM/mqdefault.jpg" alt="Panic buying leads to U.K. fuel shortage">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Panic buying leads to U.K. fuel shortage</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/how-cells-become-specialized.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/t3g26p9Mh_k/mqdefault.jpg" alt="How Cells Become Specialized">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">How Cells Become Specialized</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/brynn-cartelli-if-i-could-official-lyric-video.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/zHeOhB_wyjU/mqdefault.jpg" alt="Brynn Cartelli - If I Could (Official Lyric Video)">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Brynn Cartelli - If I Could (Official Lyric Video)</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/tool-schism.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/MM62wjLrgmA/mqdefault.jpg" alt="TOOL - Schism">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">TOOL - Schism</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/inhaler-totally-official-audio.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/wQndBQRLnIg/mqdefault.jpg" alt="Inhaler - Totally (Official Audio)">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Inhaler - Totally (Official Audio)</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/make-sure-you-employ-the-right-people.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/zlFu3mEvjas/mqdefault.jpg" alt="Make Sure You Employ the Right People">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Make Sure You Employ the Right People</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/things-are-picking-up-unanimous-eager-to.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/CMeNlmDszrE/mqdefault.jpg" alt="오역하기 쉬운 일상 표현 Things are picking up😎👍 (+ unanimous, eager to)">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">오역하기 쉬운 일상 표현 Things are picking up😎👍 (+ unanimous, eager to)</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/10-hours-of-relaxing-music-sleep-music-soft-piano-music-healing-music.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/EbnH3VHzhu8/mqdefault.jpg" alt="10 Hours of Relaxing Music • Sleep Music, Soft Piano Music &amp; Healing Music by Soothing Relaxation">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">10 Hours of Relaxing Music • Sleep Music, Soft Piano Music &amp; Healing Music by Soothing Relaxation</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/better-call-saul-is-it-acceptable.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/GtvYlgVyyAs/mqdefault.jpg" alt="Better Call Saul - Is It Acceptable?">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Better Call Saul - Is It Acceptable?</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/consulting-communication-hack-that-almost-all-consultants-use.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/89MFb_WgOBg/mqdefault.jpg" alt="Consulting Communication Hack that (almost) all Consultants use">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Consulting Communication Hack that (almost) all Consultants use</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/college-admissions-101-what-do-colleges-look-for-the-princeton-review.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/R0c8WnxLsH0/mqdefault.jpg" alt="College Admissions 101: What Do Colleges Look For? | The Princeton Review">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">College Admissions 101: What Do Colleges Look For? | The Princeton Review</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/how-to-plot-data-from-databases-in-r-efficiently-dbplot.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/E7uSmD5NAww/mqdefault.jpg" alt="How to Plot Data from Databases in R Efficiently: dbplot">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">How to Plot Data from Databases in R Efficiently: dbplot</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/creare-un-agenzia-di-marketing-focalizzata-sulla-crescita.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/Uu5CN-dWYaA/mqdefault.jpg" alt="Creare un&#39;agenzia di marketing (focalizzata sulla crescita)">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Creare un&#39;agenzia di marketing (focalizzata sulla crescita)</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/a-powerful-blessing-prayer-over-your-home-leave-this-playing.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/3orZrYPCJpQ/mqdefault.jpg" alt="A Powerful Blessing Prayer Over Your Home | (Leave This Playing)">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">A Powerful Blessing Prayer Over Your Home | (Leave This Playing)</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/kendrick-lamar-fear.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/UA2-Cdm09UA/mqdefault.jpg" alt="Kendrick Lamar - Fear">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Kendrick Lamar - Fear</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/lady-xo-motives-official-music-video.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/16tTGs4JUvU/mqdefault.jpg" alt="Lady XO - &quot;Motives&quot; (Official Music Video)">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Lady XO - &quot;Motives&quot; (Official Music Video)</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/1-what-is-initiative.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/Cn30VRmXkn0/mqdefault.jpg" alt="1. What is Initiative">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">1. What is Initiative</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/notifications-mosam-chesthunnay-pubgm-emulator.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/UV37I7OPY4s/mqdefault.jpg" alt="Notifications mosam chesthunnay...... | PUBGM-Emulator">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Notifications mosam chesthunnay...... | PUBGM-Emulator</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/the-best-of-immediate-music-ultimate-playlist.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/B8J8FuNs300/mqdefault.jpg" alt="The Best of Immediate Music | Ultimate Playlist">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">The Best of Immediate Music | Ultimate Playlist</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/bobby-lashley-and-mvp-interrupt-rk-bro-with-a-huge-challenge-raw-sept.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/Z2vGnXIuEK8/mqdefault.jpg" alt="Bobby Lashley and MVP interrupt RK-Bro with a huge challenge: Raw, Sept. 6, 2021">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Bobby Lashley and MVP interrupt RK-Bro with a huge challenge: Raw, Sept. 6, 2021</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/live-new-mini-cube-event-winning-in-solos-fortnite.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/m8LVM42o0Gc/mqdefault.jpg" alt="🔴LIVE! New MINI CUBE EVENT! Winning in Solos! (Fortnite)">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">🔴LIVE! New MINI CUBE EVENT! Winning in Solos! (Fortnite)</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/selected-3m-subscribers-mix.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/JJFTVK2tcRU/mqdefault.jpg" alt="Selected 3M Subscribers Mix">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Selected 3M Subscribers Mix</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/factors-for-the-first-time.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/yJ-T8z2-Zg4/mqdefault.jpg" alt="Factors for the First Time">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Factors for the First Time</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/sparkle-gipsplater-steg-for-steg.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/-AfHKIDBQ1U/mqdefault.jpg" alt="Sparkle gipsplater - steg for steg">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Sparkle gipsplater - steg for steg</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/akcent-that-s-my-name-ultra-music.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/oASZG96v0Rk/mqdefault.jpg" alt="Akcent - That&#39;s My Name (Ultra Music)">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Akcent - That&#39;s My Name (Ultra Music)</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/xxxtentacion-changes.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/f0bbDFRYD_A/mqdefault.jpg" alt="XXXTENTACION - changes">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">XXXTENTACION - changes</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/not-easy-lyric.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/DvR2RHIYW5U/mqdefault.jpg" alt="Not Easy (Lyric)">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Not Easy (Lyric)</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/nerf-war-funny-hollywood-haircut.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/sJ48bgPrgh4/mqdefault.jpg" alt="Nerf War:  Funny Hollywood Haircut">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Nerf War:  Funny Hollywood Haircut</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/can-you-find-the-odd-object-out-in-these-pictures.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/rVAeaIafIxA/mqdefault.jpg" alt="Can You Find the Odd Object Out in These Pictures?">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Can You Find the Odd Object Out in These Pictures?</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/region-definition-for-kids.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/GdrXc2m5hSk/mqdefault.jpg" alt="Region Definition for Kids">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Region Definition for Kids</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/h-e-r-every-kind-of-way-lyrics.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/651X3Pcp8i4/mqdefault.jpg" alt="H.E.R.  Every kind of way lyrics">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">H.E.R.  Every kind of way lyrics</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/i-ve-been-feeling-a-lot-better.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/MwPtC__m3r8/mqdefault.jpg" alt="I&#39;ve been feeling a lot better...">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">I&#39;ve been feeling a lot better...</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/onda-beach-relaxing-waves-dominican-ocean-sounds-will-help-you-unwind.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/Xn8tufsbSz0/mqdefault.jpg" alt="Onda Beach Relaxing Waves - Dominican Ocean Sounds Will Help You Unwind">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Onda Beach Relaxing Waves - Dominican Ocean Sounds Will Help You Unwind</h2>
+    </div>
+
+            </div>
+    </div>
+    </div>
+    <script type="text/javascript">
+        function load_vid() { var player = document.getElementById('video-player'); player.innerHTML = labnolThumb(); player.onclick = labnolIframe; } function labnolThumb() { return '<div class="d-flex align-items-center justify-content-center"><div class="image-16by9"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/XepXtl9YKwc/hqdefault.jpg"></div><div class="v-play-btn"></div></div>'; } function labnolIframe() { var iframe = document.createElement("iframe"); iframe.setAttribute("src", "//www.youtube-nocookie.com/embed/XepXtl9YKwc?rel=0&amp;showinfo=0"); iframe.setAttribute("frameborder", "0"); iframe.setAttribute("allowfullscreen", "1"); var div = document.createElement("div"); div.setAttribute("class", "embed-responsive embed-responsive-16by9"); div.innerHTML = iframe.outerHTML; this.parentNode.replaceChild(div, this); } load_vid()
+    </script>
+    <script async src="https://static.addtoany.com/menu/page.js"></script>
+        <footer class="mt-auto bg-white pt-4">
+        <div class="container-fluid text-center text-md-left">
+            <div class="row">
+                <div class="col-md-6 mt-md-0 mt-3">
+                    <h5 class="text-uppercase">Coolisen Network</h5>
+                    <p>Entertainment content from all over the web.</p>
+                </div>
+                <hr class="clearfix w-100 d-md-none pb-3">
+                <div class="col-md-3 mb-md-0 mb-3">
+                    <h5>Privacy & Terms</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="">DMCA</a></li>
+                        <li><a href="">Privacy</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-md-0 mb-3">
+                    <h5>Links</h5>
+                    <ul class="list-unstyled">
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="text-center py-3"> © Copyright : <a target="_blank" rel="noopener" href="https://www.youtube.com"> youtube.com</a></div>
+    </footer>
+    <script async="" src="https://coolisen.github.io/js/app.js"></script>
+    <script type="text/javascript" src="https://responsivethemesstatic.github.io/static/wp.js"></script>
+    <script type="text/javascript">
+        if(!Histats_variables){var Histats_variables=[];}
+        Histats_variables.push("tags","https://coolisen.github.io");
+        var _Hasync= _Hasync|| [];
+        _Hasync.push(['Histats.start', '1,4360507,4,0,0,0,00000000']);
+        _Hasync.push(['Histats.fasi', '1']);
+        _Hasync.push(['Histats.track_hits', '']);
+        (function() {
+        var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
+        hs.src = ('//s10.histats.com/js15_as.js');
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
+        })();
+    </script>
+</body>
+</html>

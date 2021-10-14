@@ -1,0 +1,549 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <link rel="dns-prefetch" href="//cdn.jsdelivr.net" />
+    <link rel="dns-prefetch" href="//images1-focus-opensocial.googleusercontent.com" />
+    <link rel="dns-prefetch" href="//static.addtoany.com" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="msvalidate.01" content="9102A1E6CD03B94FECA1FB775C1B5BC6">
+    <meta name="yandex-verification" content="5db0f8d4411c73f0">
+    <meta name="google-site-verification" content="NjtcY8LZZgJPLQ8ewKSWPHsaq30jrv4Ki5Qax3WBRp0">
+    <meta charset="UTF-8" />
+    <title>On-Heap vs Off-Heap| Databricks | Spark | Memory Management| Interview Question | Performance Tuning</title>
+    <meta name="description" content="#On-HeapMemory, #Off-HeapMemory, #On-heapVSOff-heap, #SparkMemoryManagement #DatabricksOptimization, #SparkOptimization, #Datab...">
+	<meta name="keywords" content="On-Heap,Off-Heap|,Databricks">
+    <meta property="og:site_name" content="Coolisen">
+    <meta property="og:url" content="https://coolisen.github.io/on-heap-vs-off-heap-databricks-spark-memory-management-interview-quest.html">
+    <meta property="og:title" content="On-Heap vs Off-Heap| Databricks | Spark | Memory Management| Interview Question | Performance Tuning">
+    <meta property="og:image" content="https://i.ytimg.com/vi/cTjHokox5Is/hqdefault.jpg">
+    <meta property="og:description" content="#On-HeapMemory, #Off-HeapMemory, #On-heapVSOff-heap, #SparkMemoryManagement #DatabricksOptimization, #SparkOptimization, #Datab...">
+    <meta name='twitter:card' content='summary_large_image' />
+    <link rel="canonical" href="https://coolisen.github.io/on-heap-vs-off-heap-databricks-spark-memory-management-interview-quest.html" />
+    <link rel="stylesheet" href="https://coolisen.github.io/inc/main.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css">
+</head>
+<body class="bg-light">
+    <nav class="navbar mb-3 navbar-expand-lg navbar-light bg-white mb-4 shadow-sm">
+        <div class="container py-2"><a class="navbar-brand" href="https://coolisen.github.io/">Coolisen</a><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-urls" aria-controls="navbar-urls" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <form
+                action="/search/" class="my-2 my-lg-0 offset-md-2 col-md-6 col-sm-12 px-0 mr-auto">
+                <div class="input-group"><input name="s" class="form-control rounded-0 py-2" type="text" placeholder="video search..." id="example-search-input"><span class="input-group-append"><button aria-label="search" role="button" class="btn btn-secondary rounded-0" type="submit"><span class="px-2"><svg class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path></svg></span></button>
+                    </span>
+                </div>
+                </form>
+                <div class="collapse navbar-collapse flex-md-grow-0" id="navbar-urls">
+
+                </div>
+        </div>
+    </nav>
+    <div class="container min-height-62" >
+        <div class="resp-container" id="top_720"></div>
+        <div class="row">
+            <div class="col-12 col-md-8">
+                <div class="bg-white"><noscript><a href="https://www.youtube.com/watch?v=cTjHokox5Is"><img alt="On-Heap vs Off-Heap| Databricks | Spark | Memory Management| Interview Question | Performance Tuning" src="https://i.ytimg.com/vi/cTjHokox5Is/hqdefault.jpg" /></a></noscript>
+                    <div id="video-player"></div>
+                    <div class="p-3">
+                        <h1 class="h5 video-title bwr">On-Heap vs Off-Heap| Databricks | Spark | Memory Management| Interview Question | Performance Tuning</h1>
+                        <div class="py-1 row">
+                            <div class="col-12 col-md-6 my-auto"><b class="text-danger">Share this & earn $10</b></div>
+                            <div class="col-12 col-md-6">
+                                <div class="a2a_kit a2a_kit_size_32 a2a_default_style"><a class="a2a_dd" href="https://www.addtoany.com/share"></a><a class="a2a_button_facebook"></a><a class="a2a_button_twitter"></a><a class="a2a_button_reddit"></a><a class="a2a_button_facebook_messenger"></a><a class="a2a_button_whatsapp"></a></div>
+                            </div>
+                        </div>
+                        <div align="center" class="py-1">
+
+                        </div>
+                        <div class="py-1">
+                            <div class="row">
+                                <div class="col-12 col-md-6">
+                                    <div class="mb-2 bwr"><strong>Raja&#39;s Data Engineering</strong><br> Published at : 14 Oct 2021  </div>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <div class="h-100 d-flex align-items-center justify-content-center"><a  target="_blank" rel="noopener" class="btn btn-block btn-danger bwr" href="https://www.youtube.com/watch?v=cTjHokox5Is">Subscribe to Raja&#39;s Data Engineering</a></div>
+                                </div>
+                            </div>
+                            <div class="resp-container" id="in_post_bottomads"></div>
+                        </div>
+                        <div class="py-1">
+                            <div class="row">
+                                <div class="col-12 col-md-6">
+                                    <div class="text-center bg-light mb-2 p-1 bwr"><span><span class="pr-1"><svg class="svg-inline--fa fa-eye fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M569.354 231.631C512.969 135.949 407.81 72 288 72 168.14 72 63.004 135.994 6.646 231.631a47.999 47.999 0 0 0 0 48.739C63.031 376.051 168.19 440 288 440c119.86 0 224.996-63.994 281.354-159.631a47.997 47.997 0 0 0 0-48.738zM288 392c-75.162 0-136-60.827-136-136 0-75.162 60.826-136 136-136 75.162 0 136 60.826 136 136 0 75.162-60.826 136-136 136zm104-136c0 57.438-46.562 104-104 104s-104-46.562-104-104c0-17.708 4.431-34.379 12.236-48.973l-.001.032c0 23.651 19.173 42.823 42.824 42.823s42.824-19.173 42.824-42.823c0-23.651-19.173-42.824-42.824-42.824l-.032.001C253.621 156.431 270.292 152 288 152c57.438 0 104 46.562 104 104z"></path></svg></span>                                        321 views </span>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="text-center bg-light p-1 bwr"><span><span class="pr-1"><svg class="svg-inline--fa fa-thumbs-up fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M104 224H24c-13.255 0-24 10.745-24 24v240c0 13.255 10.745 24 24 24h80c13.255 0 24-10.745 24-24V248c0-13.255-10.745-24-24-24zM64 472c-13.255 0-24-10.745-24-24s10.745-24 24-24 24 10.745 24 24-10.745 24-24 24zM384 81.452c0 42.416-25.97 66.208-33.277 94.548h101.723c33.397 0 59.397 27.746 59.553 58.098.084 17.938-7.546 37.249-19.439 49.197l-.11.11c9.836 23.337 8.237 56.037-9.308 79.469 8.681 25.895-.069 57.704-16.382 74.757 4.298 17.598 2.244 32.575-6.148 44.632C440.202 511.587 389.616 512 346.839 512l-2.845-.001c-48.287-.017-87.806-17.598-119.56-31.725-15.957-7.099-36.821-15.887-52.651-16.178-6.54-.12-11.783-5.457-11.783-11.998v-213.77c0-3.2 1.282-6.271 3.558-8.521 39.614-39.144 56.648-80.587 89.117-113.111 14.804-14.832 20.188-37.236 25.393-58.902C282.515 39.293 291.817 0 312 0c24 0 72 8 72 81.452z"></path></svg></span>                                                11 </span>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="text-center bg-light p-1 bwr"><span><span class="pr-1"><svg class="svg-inline--fa fa-thumbs-down fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M0 56v240c0 13.255 10.745 24 24 24h80c13.255 0 24-10.745 24-24V56c0-13.255-10.745-24-24-24H24C10.745 32 0 42.745 0 56zm40 200c0-13.255 10.745-24 24-24s24 10.745 24 24-10.745 24-24 24-24-10.745-24-24zm272 256c-20.183 0-29.485-39.293-33.931-57.795-5.206-21.666-10.589-44.07-25.393-58.902-32.469-32.524-49.503-73.967-89.117-113.111a11.98 11.98 0 0 1-3.558-8.521V59.901c0-6.541 5.243-11.878 11.783-11.998 15.831-.29 36.694-9.079 52.651-16.178C256.189 17.598 295.709.017 343.995 0h2.844c42.777 0 93.363.413 113.774 29.737 8.392 12.057 10.446 27.034 6.148 44.632 16.312 17.053 25.063 48.863 16.382 74.757 17.544 23.432 19.143 56.132 9.308 79.469l.11.11c11.893 11.949 19.523 31.259 19.439 49.197-.156 30.352-26.157 58.098-59.553 58.098H350.723C358.03 364.34 384 388.132 384 430.548 384 504 336 512 312 512z"></path></svg></span>                                                0 </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="py-1 d-md-block bwr" id="video-description"><p>#On-HeapMemory, #Off-HeapMemory, #On-heapVSOff-heap, #SparkMemoryManagement #DatabricksOptimization, #SparkOptimization, #DatabricksInterviewQuestions, #SparkInterviewQuestions, #DatabricksInterview, #DatabricksPerformance,<br />#Databricks, #DatabricksTutorial, #AzureDatabricks<br />#Databricks<br />#Pyspark<br />#Spark<br />#AzureDatabricks<br />#AzureADF<br />#Databricks #LearnPyspark #LearnDataBRicks #DataBricksTutorial<br />databricks spark tutorial<br />databricks tutorial<br />databricks azure<br />databricks notebook tutorial<br />databricks delta lake<br />databricks azure tutorial,<br />Databricks Tutorial for beginners, <br />azure Databricks tutorial<br />databricks tutorial,<br />databricks community edition,<br />databricks community edition cluster creation,<br />databricks community edition tutorial<br />databricks community edition pyspark<br />databricks community edition cluster<br />databricks pyspark tutorial<br />databricks community edition tutorial<br />databricks spark certification<br />databricks cli<br />databricks tutorial for beginners<br />databricks interview questions<br />databricks azure</p>
+</div>
+                        <div class="d-none"><span>On-Heap</span><span>Off-Heap|</span><span>Databricks</span></div>
+                        <hr/>
+                        <div class="py-3"><div class="resp-container" id="extra_bottomads"><iframe data-aa="1768017" src="//ad.a-ads.com/1768017?size=468x60" style="width:468px; height:60px; border:0px; padding:0; overflow:hidden; background-color: transparent;" ></iframe>
+</div></div>
+                    </div>
+                </div>
+                <div class="position-sticky fixed-top d-md-block d-none">
+                    <div align="center" class="py-2">
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4">
+            <div class="mb-4">
+                <div class="resp-container py-3" id="sidebar_300"></div>
+            </div>
+                
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/faraj-suleiman-questions-on-my-mind.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/FZ8HH9aQ12U/mqdefault.jpg" alt="Faraj Suleiman - Questions on My Mind | فرج سليمان - في أسئلة براسي">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Faraj Suleiman - Questions on My Mind | فرج سليمان - في أسئلة براسي</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/how-to-control-the-wireless-rgbw-multi-zone-handheld-remote.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/mtJyk4PTGN4/mqdefault.jpg" alt="How to control the Wireless RGBW Multi-Zone Handheld Remote">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">How to control the Wireless RGBW Multi-Zone Handheld Remote</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/g-eazy-ft-post-malone-halsey-ready-to-go-official-audio.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/zzyk6ydROxg/mqdefault.jpg" alt="G-Eazy Ft. Post Malone &amp; Halsey - Ready To Go (Official Audio)">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">G-Eazy Ft. Post Malone &amp; Halsey - Ready To Go (Official Audio)</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/ets-2019-c-u-172-what-is-suggested-about-the-first-day-of-uppsala-inte.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/WkO_ZIyX0JI/mqdefault.jpg" alt="ETS 2019 Câu 172  What is suggested about the first day of Uppsala International Book Fair">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">ETS 2019 Câu 172  What is suggested about the first day of Uppsala International Book Fair</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/how-to-install-a-bathroom-sink.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/L7yr5XevUoA/mqdefault.jpg" alt="How To Install a Bathroom Sink">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">How To Install a Bathroom Sink</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/t-m-lewin-know-your-size-suits.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/b4l4khCUnIM/mqdefault.jpg" alt="T.M.Lewin | Know Your Size - Suits">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">T.M.Lewin | Know Your Size - Suits</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/algebra-basics-the-distributive-property-math-antics.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/v-6MShC82ow/mqdefault.jpg" alt="Algebra Basics: The Distributive Property - Math Antics">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Algebra Basics: The Distributive Property - Math Antics</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/anastacia-take-this-chance-official-video.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/JU4qyhCP8iw/mqdefault.jpg" alt="Anastacia - Take This Chance (Official Video)">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Anastacia - Take This Chance (Official Video)</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/benefiting-from-technology.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/pj4RAwDWzRo/mqdefault.jpg" alt="BENEFITING FROM TECHNOLOGY">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">BENEFITING FROM TECHNOLOGY</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/look-after-you-the-fray.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/HJ-ntU2ADrs/mqdefault.jpg" alt="Look After You - The Fray">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Look After You - The Fray</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/a-dangerous-method-official-trailer-2011-hd.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/pjyP9DjUdVk/mqdefault.jpg" alt="A Dangerous Method Official Trailer (2011) HD">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">A Dangerous Method Official Trailer (2011) HD</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/how-you-can-learn-plc-programming-at-home-free-without-spending-a-dime.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/uUNd7N7hdgk/mqdefault.jpg" alt="How you can learn PLC Programming at home free without spending a dime">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">How you can learn PLC Programming at home free without spending a dime</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/two-the-view-hosts-learn-they-are-covid-positive-on-air-moments-before.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/Tar1b1ufaIE/mqdefault.jpg" alt="Two &quot;The View&quot; Hosts Learn They Are Covid Positive On-Air, Moments Before Harris Interview">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Two &quot;The View&quot; Hosts Learn They Are Covid Positive On-Air, Moments Before Harris Interview</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/how-to-be-confident-in-any-situation.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/KmOAznOQX-g/mqdefault.jpg" alt="How To Be Confident In Any Situation">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">How To Be Confident In Any Situation</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/selected-new-year-mix-2021.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/nemMHsp6788/mqdefault.jpg" alt="Selected New Year Mix 2021">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Selected New Year Mix 2021</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/coverage-shetar-parry-sidhu-official-video-latest-new-punjabi-songs-20.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/VbapCmqvRXs/mqdefault.jpg" alt="COVERAGE SHETAR : PARRY SIDHU (Official Video) | Latest New Punjabi Songs 2021">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">COVERAGE SHETAR : PARRY SIDHU (Official Video) | Latest New Punjabi Songs 2021</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/ritt-momney-put-your-records-on-lyrics-girl-put-your-records-on-tell-m.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/u7Mf_ZjI2Pg/mqdefault.jpg" alt="Ritt Momney - Put Your Records On (Lyrics) | girl put your records on tell me your favorite song">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Ritt Momney - Put Your Records On (Lyrics) | girl put your records on tell me your favorite song</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/lindsay-mendez-sings-simply-because-rosser-and-sohne-at-54-below.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/H8gWmF4-CKE/mqdefault.jpg" alt="Lindsay Mendez sings &quot;Simply Because&quot; (Rosser and Sohne at 54 Below)">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Lindsay Mendez sings &quot;Simply Because&quot; (Rosser and Sohne at 54 Below)</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/ulaezkucvoa.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/UlaEzkuCvoA/mqdefault.jpg" alt="Pain">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Pain</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/photography-basics-in-10-minutes.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/V7z7BAZdt2M/mqdefault.jpg" alt="PHOTOGRAPHY BASICS in 10 MINUTES">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">PHOTOGRAPHY BASICS in 10 MINUTES</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/ni-no-kuni-a-splash-of-color-errand-42.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/zKClZ_xWmM0/mqdefault.jpg" alt="Ni No Kuni A Splash of Color Errand 42">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Ni No Kuni A Splash of Color Errand 42</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/how-to-pronounce-genuine-genuinely-primary-and-primarily.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/un5ZTrIxLEg/mqdefault.jpg" alt="How to Pronounce Genuine, Genuinely, Primary and Primarily">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">How to Pronounce Genuine, Genuinely, Primary and Primarily</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/ed-sheeran-kygo-avicii-robin-schulz-lost-frequencies-the-chainsmokers.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/hYASR6t1KOY/mqdefault.jpg" alt="Ed Sheeran, Kygo, Avicii, Robin Schulz, Lost Frequencies, The Chainsmokers Styles - Feeling Me #222">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Ed Sheeran, Kygo, Avicii, Robin Schulz, Lost Frequencies, The Chainsmokers Styles - Feeling Me #222</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/5-c-to-assembly.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/wt7a5BOztuM/mqdefault.jpg" alt="5. C to Assembly">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">5. C to Assembly</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/spyware-ost-fnf.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/ibIxpwlq9BI/mqdefault.jpg" alt="Spyware OST - FNF">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Spyware OST - FNF</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/an-accessory.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/14d91kCyqHg/mqdefault.jpg" alt="An Accessory">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">An Accessory</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/opposites-near-and-far-learning-songs-for-kids-and-children-happy-kids.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/4LE3FQZZ_qA/mqdefault.jpg" alt="Opposites - Near And Far | Learning Songs For Kids And Children | Happy Kids">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Opposites - Near And Far | Learning Songs For Kids And Children | Happy Kids</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/snik-voyage-bounce-mad-video-music-awards-2021.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/e_gSZuiJiLQ/mqdefault.jpg" alt="SNIK &amp; Voyage - Bounce | MAD Video Music Awards 2021 από τη ΔΕΗ">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">SNIK &amp; Voyage - Bounce | MAD Video Music Awards 2021 από τη ΔΕΗ</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/what-the-fact-60.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/jbND1erk7WE/mqdefault.jpg" alt="Το δηλητήριο που σε κρατάει ζωντανό - What the Fact?! #60">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Το δηλητήριο που σε κρατάει ζωντανό - What the Fact?! #60</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/his-101-4-first-zoom-class-monday-august-17th.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/uWTDkG1w-cY/mqdefault.jpg" alt="HIS 101(4) - First Zoom Class - Monday, August 17th.">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">HIS 101(4) - First Zoom Class - Monday, August 17th.</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/author-tara-westover-s-incredible-story-about-leaving-her-strict-survi.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/is635n6RNR0/mqdefault.jpg" alt="Author Tara Westover’s Incredible Story About Leaving Her Strict Survivalist Family">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Author Tara Westover’s Incredible Story About Leaving Her Strict Survivalist Family</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/dua-lipa-want-to-lyrics.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/XJqaOJWPfek/mqdefault.jpg" alt="Dua Lipa - Want To (Lyrics)">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Dua Lipa - Want To (Lyrics)</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/the-ultimate-guide-to-the-confusing-world-of-uk-department-stores.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/4XcrgpZEUH4/mqdefault.jpg" alt="The Ultimate Guide to the Confusing World of UK Department Stores">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">The Ultimate Guide to the Confusing World of UK Department Stores</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/fun-ways-to-sneak-anything-anywhere-diy-crazy-sneaky-tricks-and-tips.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/VMhmfUI52YU/mqdefault.jpg" alt="Fun Ways to Sneak Anything Anywhere / DIY Crazy Sneaky Tricks and Tips">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Fun Ways to Sneak Anything Anywhere / DIY Crazy Sneaky Tricks and Tips</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/recreation-tonight-official-video.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/x37G-zs0vnU/mqdefault.jpg" alt="Recreation! - Tonight (Official Video)">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Recreation! - Tonight (Official Video)</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/creative-vs-inventive.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/85SLWPnIW8k/mqdefault.jpg" alt="creative   vs   inventive">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">creative   vs   inventive</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/beauvais-lyons-paste-paper-history-and-methods.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/ka0mnAjWsCg/mqdefault.jpg" alt="Beauvais Lyons: Paste Paper History and Methods">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Beauvais Lyons: Paste Paper History and Methods</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/millennials-in-medicine-doctors-of-the-future-daniel-wozniczka-tedxnor.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/Kykj3k2wBXg/mqdefault.jpg" alt="Millennials in Medicine: Doctors of the Future | Daniel Wozniczka | TEDxNorthwesternU">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Millennials in Medicine: Doctors of the Future | Daniel Wozniczka | TEDxNorthwesternU</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/damian-jr-gong-marley-medication-remix-stephen-ragga-marley-wiz-khalif.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/XIe98Qk-7sE/mqdefault.jpg" alt="Damian “Jr. Gong” Marley - Medication [Remix] (Stephen &quot;Ragga&quot; Marley, Wiz Khalifa &amp; Ty Dolla $ign)">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Damian “Jr. Gong” Marley - Medication [Remix] (Stephen &quot;Ragga&quot; Marley, Wiz Khalifa &amp; Ty Dolla $ign)</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/unknown-brain-hoober-phenomenon-ft-dax-vindon-ncs-release.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/LO9vChXMBp8/mqdefault.jpg" alt="Unknown Brain &amp; Hoober - Phenomenon (ft. Dax &amp; VinDon) [NCS Release]">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Unknown Brain &amp; Hoober - Phenomenon (ft. Dax &amp; VinDon) [NCS Release]</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/joy-division-disorder.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/fhCLalLXHP4/mqdefault.jpg" alt="Joy Division - Disorder">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Joy Division - Disorder</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/every-outfit-hailey-bieber-wears-in-a-week-7-days-7-looks-vogue.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/4MVHi96NZls/mqdefault.jpg" alt="Every Outfit Hailey Bieber Wears in a Week | 7 Days, 7 Looks | Vogue">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Every Outfit Hailey Bieber Wears in a Week | 7 Days, 7 Looks | Vogue</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/anna-vissi-everything-greece-2006-final.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/EJDqzQ_GlW0/mqdefault.jpg" alt="Anna Vissi - Everything (Greece) 2006 Final">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Anna Vissi - Everything (Greece) 2006 Final</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/alan-walker-alone-lyrics.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/bPs0xFd4skY/mqdefault.jpg" alt="Alan Walker - Alone (Lyrics)">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Alan Walker - Alone (Lyrics)</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/backstreet-boys-as-long-as-you-love-me-official-hd-video.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/0Gl2QnHNpkA/mqdefault.jpg" alt="Backstreet Boys - As Long As You Love Me (Official HD Video)">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Backstreet Boys - As Long As You Love Me (Official HD Video)</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/hubert-kah-so-many-people-video-1989.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/P2vuD4GON18/mqdefault.jpg" alt="Hubert Kah - So Many People (Video 1989)">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Hubert Kah - So Many People (Video 1989)</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/describe-a-famous-person-you-admire-for-ielts-speaking-part-2.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/doHiPDYnRA0/mqdefault.jpg" alt="Describe a Famous Person you Admire [for IELTS Speaking Part 2]">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Describe a Famous Person you Admire [for IELTS Speaking Part 2]</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/kenshi-scorching-wind-more-extended.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/eVo9pVTelcE/mqdefault.jpg" alt="Kenshi: Scorching Wind [More Extended]">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Kenshi: Scorching Wind [More Extended]</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/allergy-mechanism-symptoms-risk-factors-diagnosis-treatment-and-preven.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/llZFx8n-WCQ/mqdefault.jpg" alt="Allergy - Mechanism, Symptoms, Risk factors, Diagnosis, Treatment and Prevention, Animation">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Allergy - Mechanism, Symptoms, Risk factors, Diagnosis, Treatment and Prevention, Animation</h2>
+    </div>
+
+            </div>
+    </div>
+    </div>
+    <script type="text/javascript">
+        function load_vid() { var player = document.getElementById('video-player'); player.innerHTML = labnolThumb(); player.onclick = labnolIframe; } function labnolThumb() { return '<div class="d-flex align-items-center justify-content-center"><div class="image-16by9"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/cTjHokox5Is/hqdefault.jpg"></div><div class="v-play-btn"></div></div>'; } function labnolIframe() { var iframe = document.createElement("iframe"); iframe.setAttribute("src", "//www.youtube-nocookie.com/embed/cTjHokox5Is?rel=0&amp;showinfo=0"); iframe.setAttribute("frameborder", "0"); iframe.setAttribute("allowfullscreen", "1"); var div = document.createElement("div"); div.setAttribute("class", "embed-responsive embed-responsive-16by9"); div.innerHTML = iframe.outerHTML; this.parentNode.replaceChild(div, this); } load_vid()
+    </script>
+    <script async src="https://static.addtoany.com/menu/page.js"></script>
+        <footer class="mt-auto bg-white pt-4">
+        <div class="container-fluid text-center text-md-left">
+            <div class="row">
+                <div class="col-md-6 mt-md-0 mt-3">
+                    <h5 class="text-uppercase">Coolisen Network</h5>
+                    <p>Entertainment content from all over the web.</p>
+                </div>
+                <hr class="clearfix w-100 d-md-none pb-3">
+                <div class="col-md-3 mb-md-0 mb-3">
+                    <h5>Privacy & Terms</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="">DMCA</a></li>
+                        <li><a href="">Privacy</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-md-0 mb-3">
+                    <h5>Links</h5>
+                    <ul class="list-unstyled">
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="text-center py-3"> © Copyright : <a target="_blank" rel="noopener" href="https://www.youtube.com"> youtube.com</a></div>
+    </footer>
+    <script async="" src="https://coolisen.github.io/js/app.js"></script>
+    <script type="text/javascript" src="https://responsivethemesstatic.github.io/static/wp.js"></script>
+    <script type="text/javascript">
+        if(!Histats_variables){var Histats_variables=[];}
+        Histats_variables.push("tags","https://coolisen.github.io");
+        var _Hasync= _Hasync|| [];
+        _Hasync.push(['Histats.start', '1,4360507,4,0,0,0,00000000']);
+        _Hasync.push(['Histats.fasi', '1']);
+        _Hasync.push(['Histats.track_hits', '']);
+        (function() {
+        var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
+        hs.src = ('//s10.histats.com/js15_as.js');
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
+        })();
+    </script>
+</body>
+</html>

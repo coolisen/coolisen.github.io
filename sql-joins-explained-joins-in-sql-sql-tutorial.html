@@ -1,0 +1,553 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <link rel="dns-prefetch" href="//cdn.jsdelivr.net" />
+    <link rel="dns-prefetch" href="//images1-focus-opensocial.googleusercontent.com" />
+    <link rel="dns-prefetch" href="//static.addtoany.com" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="msvalidate.01" content="9102A1E6CD03B94FECA1FB775C1B5BC6">
+    <meta name="yandex-verification" content="5db0f8d4411c73f0">
+    <meta name="google-site-verification" content="NjtcY8LZZgJPLQ8ewKSWPHsaq30jrv4Ki5Qax3WBRp0">
+    <meta charset="UTF-8" />
+    <title>SQL Joins Explained  |¦| Joins in SQL |¦| SQL Tutorial</title>
+    <meta name="description" content="SQL Joins let you fetch data from 2 or more tables in your database.  We will cover the more common types of Joins:  Inner Join...">
+	<meta name="keywords" content="Socratica,SocraticaCS,SQL">
+    <meta property="og:site_name" content="Coolisen">
+    <meta property="og:url" content="https://coolisen.github.io/sql-joins-explained-joins-in-sql-sql-tutorial.html">
+    <meta property="og:title" content="SQL Joins Explained  |¦| Joins in SQL |¦| SQL Tutorial">
+    <meta property="og:image" content="https://i.ytimg.com/vi/9yeOJ0ZMUYw/hqdefault.jpg">
+    <meta property="og:description" content="SQL Joins let you fetch data from 2 or more tables in your database.  We will cover the more common types of Joins:  Inner Join...">
+    <meta name='twitter:card' content='summary_large_image' />
+    <link rel="canonical" href="https://coolisen.github.io/sql-joins-explained-joins-in-sql-sql-tutorial.html" />
+    <link rel="stylesheet" href="https://coolisen.github.io/inc/main.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css">
+</head>
+<body class="bg-light">
+    <nav class="navbar mb-3 navbar-expand-lg navbar-light bg-white mb-4 shadow-sm">
+        <div class="container py-2"><a class="navbar-brand" href="https://coolisen.github.io/">Coolisen</a><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-urls" aria-controls="navbar-urls" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <form
+                action="/search/" class="my-2 my-lg-0 offset-md-2 col-md-6 col-sm-12 px-0 mr-auto">
+                <div class="input-group"><input name="s" class="form-control rounded-0 py-2" type="text" placeholder="video search..." id="example-search-input"><span class="input-group-append"><button aria-label="search" role="button" class="btn btn-secondary rounded-0" type="submit"><span class="px-2"><svg class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path></svg></span></button>
+                    </span>
+                </div>
+                </form>
+                <div class="collapse navbar-collapse flex-md-grow-0" id="navbar-urls">
+
+                </div>
+        </div>
+    </nav>
+    <div class="container min-height-62" >
+        <div class="resp-container" id="top_720"></div>
+        <div class="row">
+            <div class="col-12 col-md-8">
+                <div class="bg-white"><noscript><a href="https://www.youtube.com/watch?v=9yeOJ0ZMUYw"><img alt="SQL Joins Explained  |¦| Joins in SQL |¦| SQL Tutorial" src="https://i.ytimg.com/vi/9yeOJ0ZMUYw/hqdefault.jpg" /></a></noscript>
+                    <div id="video-player"></div>
+                    <div class="p-3">
+                        <h1 class="h5 video-title bwr">SQL Joins Explained  |¦| Joins in SQL |¦| SQL Tutorial</h1>
+                        <div class="py-1 row">
+                            <div class="col-12 col-md-6 my-auto"><b class="text-danger">Share this & earn $10</b></div>
+                            <div class="col-12 col-md-6">
+                                <div class="a2a_kit a2a_kit_size_32 a2a_default_style"><a class="a2a_dd" href="https://www.addtoany.com/share"></a><a class="a2a_button_facebook"></a><a class="a2a_button_twitter"></a><a class="a2a_button_reddit"></a><a class="a2a_button_facebook_messenger"></a><a class="a2a_button_whatsapp"></a></div>
+                            </div>
+                        </div>
+                        <div align="center" class="py-1">
+
+                        </div>
+                        <div class="py-1">
+                            <div class="row">
+                                <div class="col-12 col-md-6">
+                                    <div class="mb-2 bwr"><strong>Socratica</strong><br> Published at : 11 Nov 2021  </div>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <div class="h-100 d-flex align-items-center justify-content-center"><a  target="_blank" rel="noopener" class="btn btn-block btn-danger bwr" href="https://www.youtube.com/watch?v=9yeOJ0ZMUYw">Subscribe to Socratica</a></div>
+                                </div>
+                            </div>
+                            <div class="resp-container" id="in_post_bottomads"></div>
+                        </div>
+                        <div class="py-1">
+                            <div class="row">
+                                <div class="col-12 col-md-6">
+                                    <div class="text-center bg-light mb-2 p-1 bwr"><span><span class="pr-1"><svg class="svg-inline--fa fa-eye fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M569.354 231.631C512.969 135.949 407.81 72 288 72 168.14 72 63.004 135.994 6.646 231.631a47.999 47.999 0 0 0 0 48.739C63.031 376.051 168.19 440 288 440c119.86 0 224.996-63.994 281.354-159.631a47.997 47.997 0 0 0 0-48.738zM288 392c-75.162 0-136-60.827-136-136 0-75.162 60.826-136 136-136 75.162 0 136 60.826 136 136 0 75.162-60.826 136-136 136zm104-136c0 57.438-46.562 104-104 104s-104-46.562-104-104c0-17.708 4.431-34.379 12.236-48.973l-.001.032c0 23.651 19.173 42.823 42.824 42.823s42.824-19.173 42.824-42.823c0-23.651-19.173-42.824-42.824-42.824l-.032.001C253.621 156.431 270.292 152 288 152c57.438 0 104 46.562 104 104z"></path></svg></span>                                        407461 views </span>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="text-center bg-light p-1 bwr"><span><span class="pr-1"><svg class="svg-inline--fa fa-thumbs-up fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M104 224H24c-13.255 0-24 10.745-24 24v240c0 13.255 10.745 24 24 24h80c13.255 0 24-10.745 24-24V248c0-13.255-10.745-24-24-24zM64 472c-13.255 0-24-10.745-24-24s10.745-24 24-24 24 10.745 24 24-10.745 24-24 24zM384 81.452c0 42.416-25.97 66.208-33.277 94.548h101.723c33.397 0 59.397 27.746 59.553 58.098.084 17.938-7.546 37.249-19.439 49.197l-.11.11c9.836 23.337 8.237 56.037-9.308 79.469 8.681 25.895-.069 57.704-16.382 74.757 4.298 17.598 2.244 32.575-6.148 44.632C440.202 511.587 389.616 512 346.839 512l-2.845-.001c-48.287-.017-87.806-17.598-119.56-31.725-15.957-7.099-36.821-15.887-52.651-16.178-6.54-.12-11.783-5.457-11.783-11.998v-213.77c0-3.2 1.282-6.271 3.558-8.521 39.614-39.144 56.648-80.587 89.117-113.111 14.804-14.832 20.188-37.236 25.393-58.902C282.515 39.293 291.817 0 312 0c24 0 72 8 72 81.452z"></path></svg></span>                                                15325 </span>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="text-center bg-light p-1 bwr"><span><span class="pr-1"><svg class="svg-inline--fa fa-thumbs-down fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M0 56v240c0 13.255 10.745 24 24 24h80c13.255 0 24-10.745 24-24V56c0-13.255-10.745-24-24-24H24C10.745 32 0 42.745 0 56zm40 200c0-13.255 10.745-24 24-24s24 10.745 24 24-10.745 24-24 24-24-10.745-24-24zm272 256c-20.183 0-29.485-39.293-33.931-57.795-5.206-21.666-10.589-44.07-25.393-58.902-32.469-32.524-49.503-73.967-89.117-113.111a11.98 11.98 0 0 1-3.558-8.521V59.901c0-6.541 5.243-11.878 11.783-11.998 15.831-.29 36.694-9.079 52.651-16.178C256.189 17.598 295.709.017 343.995 0h2.844c42.777 0 93.363.413 113.774 29.737 8.392 12.057 10.446 27.034 6.148 44.632 16.312 17.053 25.063 48.863 16.382 74.757 17.544 23.432 19.143 56.132 9.308 79.469l.11.11c11.893 11.949 19.523 31.259 19.439 49.197-.156 30.352-26.157 58.098-59.553 58.098H350.723C358.03 364.34 384 388.132 384 430.548 384 504 336 512 312 512z"></path></svg></span>                                                249 </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="py-1 d-md-block bwr" id="video-description"><p>SQL Joins let you fetch data from 2 or more tables in your database.  We will cover the more common types of Joins:  Inner Joins, Left Joins, Right Joins, and Full Joins (also called ‘Full Outer Joins’).  We will introduce these 4 kinds of Joins and prepare you for our next video where we will cover many examples.<br /><br />Our SQL playlist starts here: <br />↪<a rel="nofollow" target="blank" href="http://bit.ly/Socratica_SQL">http://bit.ly/Socratica_SQL</a><br /><br />Be sure to SUBSCRIBE for more SQL!<br />↪ <a rel="nofollow" target="blank" href="http://bit.ly/SocraticaSubscribe">http://bit.ly/SocraticaSubscribe</a><br /><br />You may also enjoy our Python playlist:<br />↪<a rel="nofollow" target="blank" href="http://bit.ly/PythonSocratica">http://bit.ly/PythonSocratica</a><br /><br />♦♦♦♦♦♦♦♦♦♦<br /><br />Ways to support our channel:<br /><br />►  Join our Patreon : <a rel="nofollow" target="blank" href="https://www.patreon.com/socratica">https://www.patreon.com/socratica</a><br />►  Make a one-time PayPal donation: <a rel="nofollow" target="blank" href="https://www.paypal.me/socratica">https://www.paypal.me/socratica</a><br />►  We also accept Bitcoin @ 1EttYyGwJmpy9bLY2UcmEqMJuBfaZ1HdG9<br /><br />Thank you!<br /><br />♦♦♦♦♦♦♦♦♦♦<br /><br />Connect with us!<br /><br />Facebook: <a rel="nofollow" target="blank" href="https://www.facebook.com/SocraticaStudios/">https://www.facebook.com/SocraticaStudios/</a><br />Instagram: <a rel="nofollow" target="blank" href="https://www.instagram.com/SocraticaStudios/">https://www.instagram.com/SocraticaStudios/</a><br />Twitter: <a rel="nofollow" target="blank" href="https://twitter.com/Socratica">https://twitter.com/Socratica</a><br /><br />♦♦♦♦♦♦♦♦♦♦<br /><br />SQL instructor: Ulka Simone Mohanty  (@ulkam on Twitter)<br />Written &amp; Produced by Kimberly Hatch Harrison (@khhsocratica) &amp; Michael Harrison (@mlh496)<br /><br />♦♦♦♦♦♦♦♦♦♦</p>
+</div>
+                        <div class="d-none"><span>Socratica</span><span>SocraticaCS</span><span>SQL</span></div>
+                        <hr/>
+                        <div class="py-3"><div class="resp-container" id="extra_bottomads"><iframe data-aa="1768017" src="//ad.a-ads.com/1768017?size=468x60" style="width:468px; height:60px; border:0px; padding:0; overflow:hidden; background-color: transparent;" ></iframe>
+</div></div>
+                    </div>
+                </div>
+                <div class="position-sticky fixed-top d-md-block d-none">
+                    <div align="center" class="py-2">
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4">
+            <div class="mb-4">
+                <div class="resp-container py-3" id="sidebar_300"></div>
+            </div>
+                
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/if-i-could-find-you-eternity.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/IXsDehArNTg/mqdefault.jpg" alt="If I Could Find You (Eternity)">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">If I Could Find You (Eternity)</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/greatwhite-electricals-the-wide-array-of-products.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/FgWHSfg5bUs/mqdefault.jpg" alt="GreatWhite Electricals: The Wide Array of Products">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">GreatWhite Electricals: The Wide Array of Products</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/excel-formulas-cap-percentage-at-specific-amount-exceltutorial-exceltr.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/5DU7EnhtANg/mqdefault.jpg" alt="Excel Formulas _ Cap percentage at specific amount
+#exceltutorial
+#exceltrainings">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Excel Formulas _ Cap percentage at specific amount
+#exceltutorial
+#exceltrainings</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/yesterday-with-spoken-word-intro-live-from-studio-50-new-york-city-196.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/wXTJBr9tt8Q/mqdefault.jpg" alt="Yesterday (With Spoken Word Intro / Live From Studio 50, New York City / 1965)">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Yesterday (With Spoken Word Intro / Live From Studio 50, New York City / 1965)</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/crystals-bracelet-simple-and-elegant-bracelet-easy-bracelet-making-at.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/m--KaCxv1xU/mqdefault.jpg" alt="Crystals bracelet/Simple and elegant bracelet/Easy bracelet making at home/Handmade/Diy Beading">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Crystals bracelet/Simple and elegant bracelet/Easy bracelet making at home/Handmade/Diy Beading</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/offer-nissim-feat-maya-simantov-miracle-part-b.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/IgIwBlN_Pdg/mqdefault.jpg" alt="Offer Nissim Feat Maya Simantov - Miracle Part B">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Offer Nissim Feat Maya Simantov - Miracle Part B</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/why-you-should-be-worried-about-china-s-debt-crisis.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/lbH_8Nj51HU/mqdefault.jpg" alt="Why You Should Be Worried About China&#39;s Debt Crisis">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Why You Should Be Worried About China&#39;s Debt Crisis</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/bride-finds-the-perfect-dress-after-life-changing-surgery-i-say-yes-to.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/RMn2_4CukMo/mqdefault.jpg" alt="Bride Finds The Perfect Dress After Life-Changing Surgery I Say Yes To The Dress UK">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Bride Finds The Perfect Dress After Life-Changing Surgery I Say Yes To The Dress UK</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/20-ikea-home-organization-ideas-affordable-organization-you-need-2021.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/U2hTqJV-YJU/mqdefault.jpg" alt="20 Ikea Home Organization Ideas / Affordable Organization You Need 2021">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">20 Ikea Home Organization Ideas / Affordable Organization You Need 2021</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/numberblocks-meet-numbers-one-to-fifteen-cool-design-fanmade-manchena.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/Wxf-nHnrLko/mqdefault.jpg" alt="Numberblocks meet numbers one to fifteen  cool design | fanmade MancheNa">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Numberblocks meet numbers one to fifteen  cool design | fanmade MancheNa</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/evidence-of-advanced-ancient-technology-discovered-in-australia-and-in.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/5ppX0qp92h0/mqdefault.jpg" alt="Evidence of Advanced Ancient Technology Discovered in Australia and India">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Evidence of Advanced Ancient Technology Discovered in Australia and India</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/become-granny-or-die-in-roblox-roblox-granny.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/ipSdxTlPFpw/mqdefault.jpg" alt="BECOME GRANNY OR DIE IN ROBLOX!? (Roblox Granny)">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">BECOME GRANNY OR DIE IN ROBLOX!? (Roblox Granny)</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/fractal-ink-jets-that-power-spiral-motion.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/gNoWqvIC4Ks/mqdefault.jpg" alt="Fractal Ink Jets That Power Spiral Motion">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Fractal Ink Jets That Power Spiral Motion</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/essentially-ellington-2016-beloit-memorial-high-school-jazz-orchestra.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/wdJ5qPB-Sq0/mqdefault.jpg" alt="Essentially Ellington 2016 - Beloit Memorial High School Jazz Orchestra">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Essentially Ellington 2016 - Beloit Memorial High School Jazz Orchestra</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/the-cost-of-concordia.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/Qh9KBwqGxTI/mqdefault.jpg" alt="The Cost of Concordia">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">The Cost of Concordia</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/dababy-rockstar-ft-roddy-ricch-audio.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/83xBPCw5hh4/mqdefault.jpg" alt="DaBaby – ROCKSTAR FT RODDY RICCH [Audio]">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">DaBaby – ROCKSTAR FT RODDY RICCH [Audio]</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/harry-styles-adore-you-official-video.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/VF-r5TtlT9w/mqdefault.jpg" alt="Harry Styles - Adore You (Official Video)">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Harry Styles - Adore You (Official Video)</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/enrico-sangiuliano-a-further-existence-drumcode.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/8s3MtnlDMFI/mqdefault.jpg" alt="Enrico Sangiuliano - A Further Existence [Drumcode]">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Enrico Sangiuliano - A Further Existence [Drumcode]</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/amazing-tricks-that-will-take-you-to-another-level-of-work-tips-and-tr.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/5bphyA6gsXE/mqdefault.jpg" alt="Amazing tricks that will take you to another level of work – Tips and tricks">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Amazing tricks that will take you to another level of work – Tips and tricks</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/katelyn-tarver-you-don-t-know-lyric-video.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/a5AASPu_hXs/mqdefault.jpg" alt="Katelyn Tarver - You Don&#39;t Know (Lyric Video)">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Katelyn Tarver - You Don&#39;t Know (Lyric Video)</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/why-he-look-that-much-like-younger-drake.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/W32IBgrOuMw/mqdefault.jpg" alt="Why he look that much like younger DRAKE">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Why he look that much like younger DRAKE</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/morgenshtern-slava-marlow.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/D2rP1Afj5jc/mqdefault.jpg" alt="ФОТО ЗВЕЗД КОТОРЫЕ ВЫ ТОЧНО НЕ ВИДЕЛИ. ГОЛЫЕ MORGENSHTERN и SLAVA MARLOW">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">ФОТО ЗВЕЗД КОТОРЫЕ ВЫ ТОЧНО НЕ ВИДЕЛИ. ГОЛЫЕ MORGENSHTERN и SLAVA MARLOW</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/meanings-of-mean-english-expressions.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/eSiBnYwVn7g/mqdefault.jpg" alt="Meanings of &quot;Mean&quot; - English Expressions">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Meanings of &quot;Mean&quot; - English Expressions</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/sort-the-same-group-two-different-ways-preschool-and-kindergarten-kids.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/Zg5AAxgf9qg/mqdefault.jpg" alt="Sort the Same Group Two Different Ways | Preschool and Kindergarten | Kids Academy">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Sort the Same Group Two Different Ways | Preschool and Kindergarten | Kids Academy</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/top-10-crypto-faucets-for-2021.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/KXPBdcgMlkw/mqdefault.jpg" alt="Top 10 Crypto Faucets For 2021">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Top 10 Crypto Faucets For 2021</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/they-appear-official-video.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/Xto4jdHv_yg/mqdefault.jpg" alt="They Appear (Official Video)">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">They Appear (Official Video)</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/hitler-speaking-normally-subtitles.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/ClR9tcpKZec/mqdefault.jpg" alt="Hitler Speaking Normally (Subtitles)">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Hitler Speaking Normally (Subtitles)</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/top-trends-in-decorating-for-christmas-2021-new-christmas-decoration-i.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/ybzwOm8flNQ/mqdefault.jpg" alt="TOP TRENDS IN DECORATING FOR CHRISTMAS 2021 / New Christmas Decoration Ideas">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">TOP TRENDS IN DECORATING FOR CHRISTMAS 2021 / New Christmas Decoration Ideas</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/filtercopy-when-your-bff-is-your-exact-opposite-ft-ahsaas-channa-and-b.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/12F9LarnUPE/mqdefault.jpg" alt="FilterCopy | When Your BFF Is Your Exact Opposite |  Ft. Ahsaas Channa and Barkha Singh">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">FilterCopy | When Your BFF Is Your Exact Opposite |  Ft. Ahsaas Channa and Barkha Singh</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/pursuing-an-ita-3-to-bolster-global-economic-growth-and-opportunity.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/o5J434Enriw/mqdefault.jpg" alt="Pursuing an ITA-3 to Bolster Global Economic Growth and Opportunity">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Pursuing an ITA-3 to Bolster Global Economic Growth and Opportunity</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/nuwanga-samarasinghe-aane-dingak-innako-live-shows-the-voice-sri-lanka.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/rH1RMYmVK7Q/mqdefault.jpg" alt="Nuwanga Samarasinghe | Aane Dingak Innako (ආනේ ඩිංගක් ඉන්නකෝ) | Live Shows | The Voice Sri Lanka">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Nuwanga Samarasinghe | Aane Dingak Innako (ආනේ ඩිංගක් ඉන්නකෝ) | Live Shows | The Voice Sri Lanka</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/the-students-i-m-so-young.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/ZX5YPpfOINQ/mqdefault.jpg" alt="THE STUDENTS I&#39;M SO YOUNG">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">THE STUDENTS I&#39;M SO YOUNG</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/vanotek-cherry-lips-feat-mikayla-official-video.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/A2y7AERlNzw/mqdefault.jpg" alt="Vanotek - Cherry Lips (feat. Mikayla) | Official Video">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Vanotek - Cherry Lips (feat. Mikayla) | Official Video</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/5-best-handbags-to-jumpstart-your-luxury-collection.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/17q3PSIi--8/mqdefault.jpg" alt="5 Best Handbags to JUMPSTART Your Luxury Collection">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">5 Best Handbags to JUMPSTART Your Luxury Collection</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/shawn-jones-the-believers-i-m-depending-on-you.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/z5itx6RPMj8/mqdefault.jpg" alt="Shawn Jones &amp; The Believers I&#39;m Depending on You">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Shawn Jones &amp; The Believers I&#39;m Depending on You</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/old-style-torre-pellice-vs-tergeste-tigers-serie-b-playoff-semifinale.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/Z2HAU6059is/mqdefault.jpg" alt="Old Style Torre Pellice vs Tergeste Tigers -Serie B | Playoff - Semifinale - Gara 1">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Old Style Torre Pellice vs Tergeste Tigers -Serie B | Playoff - Semifinale - Gara 1</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/almandrez-enough-official-video.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/-BTCBZlb1NU/mqdefault.jpg" alt="Almandrez - Enough (Official Video)">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Almandrez - Enough (Official Video)</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/fighter-official-trailer-hrithik-roshan-deepika-padukone-siddharth-ana.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/z_XfwDAwq_g/mqdefault.jpg" alt="FIGHTER Official Trailer | Hrithik Roshan | Deepika Padukone | Siddharth Anand">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">FIGHTER Official Trailer | Hrithik Roshan | Deepika Padukone | Siddharth Anand</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/gorgeous-and-trendy-hairstyles-2021-new-curly-hairstyles.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/IpC7JNYHvfs/mqdefault.jpg" alt="🍋🌟 GORGEOUS AND TRENDY HAIRSTYLES 🍋🌟 2021 NEW CURLY HAIRSTYLES 🍋🌟">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">🍋🌟 GORGEOUS AND TRENDY HAIRSTYLES 🍋🌟 2021 NEW CURLY HAIRSTYLES 🍋🌟</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/teori-konspirasi-4-mob-di-minecraft.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/zTYD7wJiCmQ/mqdefault.jpg" alt="Teori KONSPIRASI 4 MOB di Minecraft">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Teori KONSPIRASI 4 MOB di Minecraft</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/the-metaverse-and-how-we-ll-build-it-together-connect-2021.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/Uvufun6xer8/mqdefault.jpg" alt="The Metaverse and How We&#39;ll Build It Together -- Connect 2021">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">The Metaverse and How We&#39;ll Build It Together -- Connect 2021</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/hal-rogers-scholarship-established.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/eI8MqRmyHRM/mqdefault.jpg" alt="Hal Rogers Scholarship established 🎻🪕">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Hal Rogers Scholarship established 🎻🪕</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/this-is-how-rich-people-of-dubai-spend-their-money.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/rolp3QWaVvg/mqdefault.jpg" alt="This Is How Rich People of Dubai Spend Their Money">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">This Is How Rich People of Dubai Spend Their Money</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/lovin-you-lots-and-lots.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/ucLY9jn5L1E/mqdefault.jpg" alt="Lovin&#39; You Lots and Lots">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Lovin&#39; You Lots and Lots</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/the-jacksons-your-ways-official-audio.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/gPBk8CQPk4w/mqdefault.jpg" alt="The Jacksons - Your Ways (Official Audio)">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">The Jacksons - Your Ways (Official Audio)</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/interview-with-a-specialist-soratinex-products.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/MbZ2ugTTy4M/mqdefault.jpg" alt="Interview with a specialist (Soratinex Products)">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Interview with a specialist (Soratinex Products)</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/what-do-we-have-the-monster-song-kids-songs-bingobongo-learning.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/dKkawO9zVkQ/mqdefault.jpg" alt="What Do We Have? (The Monster Song) | Kids Songs | BINGOBONGO Learning">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">What Do We Have? (The Monster Song) | Kids Songs | BINGOBONGO Learning</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/how-to-tailor-your-suits-tailored-vs-untailored.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/HZB7BHdoows/mqdefault.jpg" alt="How to Tailor Your Suits || TAILORED vs UNTAILORED">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">How to Tailor Your Suits || TAILORED vs UNTAILORED</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/new-country-2021-chris-stapleton-kane-brown-blake-shelton-dan-shay-luk.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/Ab1oBXF3qoQ/mqdefault.jpg" alt="New Country 2021 ♪♪ Chris Stapleton, Kane Brown, Blake Shelton, Dan + Shay, Luke Combs, Thomas Rhett">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">New Country 2021 ♪♪ Chris Stapleton, Kane Brown, Blake Shelton, Dan + Shay, Luke Combs, Thomas Rhett</h2>
+    </div>
+
+            </div>
+    </div>
+    </div>
+    <script type="text/javascript">
+        function load_vid() { var player = document.getElementById('video-player'); player.innerHTML = labnolThumb(); player.onclick = labnolIframe; } function labnolThumb() { return '<div class="d-flex align-items-center justify-content-center"><div class="image-16by9"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/9yeOJ0ZMUYw/hqdefault.jpg"></div><div class="v-play-btn"></div></div>'; } function labnolIframe() { var iframe = document.createElement("iframe"); iframe.setAttribute("src", "//www.youtube-nocookie.com/embed/9yeOJ0ZMUYw?rel=0&amp;showinfo=0"); iframe.setAttribute("frameborder", "0"); iframe.setAttribute("allowfullscreen", "1"); var div = document.createElement("div"); div.setAttribute("class", "embed-responsive embed-responsive-16by9"); div.innerHTML = iframe.outerHTML; this.parentNode.replaceChild(div, this); } load_vid()
+    </script>
+    <script async src="https://static.addtoany.com/menu/page.js"></script>
+        <footer class="mt-auto bg-white pt-4">
+        <div class="container-fluid text-center text-md-left">
+            <div class="row">
+                <div class="col-md-6 mt-md-0 mt-3">
+                    <h5 class="text-uppercase">Coolisen Network</h5>
+                    <p>Entertainment content from all over the web.</p>
+                </div>
+                <hr class="clearfix w-100 d-md-none pb-3">
+                <div class="col-md-3 mb-md-0 mb-3">
+                    <h5>Privacy & Terms</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="">DMCA</a></li>
+                        <li><a href="">Privacy</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-md-0 mb-3">
+                    <h5>Links</h5>
+                    <ul class="list-unstyled">
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="text-center py-3"> © Copyright : <a target="_blank" rel="noopener" href="https://www.youtube.com"> youtube.com</a></div>
+    </footer>
+    <script async="" src="https://coolisen.github.io/js/app.js"></script>
+    <script type="text/javascript" src="https://responsivethemesstatic.github.io/static/wp.js"></script>
+    <script type="text/javascript">
+        if(!Histats_variables){var Histats_variables=[];}
+        Histats_variables.push("tags","https://coolisen.github.io");
+        var _Hasync= _Hasync|| [];
+        _Hasync.push(['Histats.start', '1,4360507,4,0,0,0,00000000']);
+        _Hasync.push(['Histats.fasi', '1']);
+        _Hasync.push(['Histats.track_hits', '']);
+        (function() {
+        var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
+        hs.src = ('//s10.histats.com/js15_as.js');
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
+        })();
+    </script>
+</body>
+</html>

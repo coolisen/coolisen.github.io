@@ -1,0 +1,549 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <link rel="dns-prefetch" href="//cdn.jsdelivr.net" />
+    <link rel="dns-prefetch" href="//images1-focus-opensocial.googleusercontent.com" />
+    <link rel="dns-prefetch" href="//static.addtoany.com" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="msvalidate.01" content="9102A1E6CD03B94FECA1FB775C1B5BC6">
+    <meta name="yandex-verification" content="5db0f8d4411c73f0">
+    <meta name="google-site-verification" content="NjtcY8LZZgJPLQ8ewKSWPHsaq30jrv4Ki5Qax3WBRp0">
+    <meta charset="UTF-8" />
+    <title>Beta, the risk-free rate, and CAPM. Calculate the expected return of a security on Excel.</title>
+    <meta name="description" content="https://www.buymeacoffee.com/DrDavidJohnkUse Excel, Yahoo Finance, and 90 Day T-bill data from the US Federal Reserve to calcul...">
+	<meta name="keywords" content="Excel,Finance,Beta">
+    <meta property="og:site_name" content="Coolisen">
+    <meta property="og:url" content="https://coolisen.github.io/beta-the-risk-free-rate-and-capm-calculate-the-expected-return-of-a-se.html">
+    <meta property="og:title" content="Beta, the risk-free rate, and CAPM. Calculate the expected return of a security on Excel.">
+    <meta property="og:image" content="https://i.ytimg.com/vi/rPY2wGyOtGM/hqdefault.jpg">
+    <meta property="og:description" content="https://www.buymeacoffee.com/DrDavidJohnkUse Excel, Yahoo Finance, and 90 Day T-bill data from the US Federal Reserve to calcul...">
+    <meta name='twitter:card' content='summary_large_image' />
+    <link rel="canonical" href="https://coolisen.github.io/beta-the-risk-free-rate-and-capm-calculate-the-expected-return-of-a-se.html" />
+    <link rel="stylesheet" href="https://coolisen.github.io/inc/main.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css">
+</head>
+<body class="bg-light">
+    <nav class="navbar mb-3 navbar-expand-lg navbar-light bg-white mb-4 shadow-sm">
+        <div class="container py-2"><a class="navbar-brand" href="https://coolisen.github.io/">Coolisen</a><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-urls" aria-controls="navbar-urls" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <form
+                action="/search/" class="my-2 my-lg-0 offset-md-2 col-md-6 col-sm-12 px-0 mr-auto">
+                <div class="input-group"><input name="s" class="form-control rounded-0 py-2" type="text" placeholder="video search..." id="example-search-input"><span class="input-group-append"><button aria-label="search" role="button" class="btn btn-secondary rounded-0" type="submit"><span class="px-2"><svg class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path></svg></span></button>
+                    </span>
+                </div>
+                </form>
+                <div class="collapse navbar-collapse flex-md-grow-0" id="navbar-urls">
+
+                </div>
+        </div>
+    </nav>
+    <div class="container min-height-62" >
+        <div class="resp-container" id="top_720"></div>
+        <div class="row">
+            <div class="col-12 col-md-8">
+                <div class="bg-white"><noscript><a href="https://www.youtube.com/watch?v=rPY2wGyOtGM"><img alt="Beta, the risk-free rate, and CAPM. Calculate the expected return of a security on Excel." src="https://i.ytimg.com/vi/rPY2wGyOtGM/hqdefault.jpg" /></a></noscript>
+                    <div id="video-player"></div>
+                    <div class="p-3">
+                        <h1 class="h5 video-title bwr">Beta, the risk-free rate, and CAPM. Calculate the expected return of a security on Excel.</h1>
+                        <div class="py-1 row">
+                            <div class="col-12 col-md-6 my-auto"><b class="text-danger">Share this & earn $10</b></div>
+                            <div class="col-12 col-md-6">
+                                <div class="a2a_kit a2a_kit_size_32 a2a_default_style"><a class="a2a_dd" href="https://www.addtoany.com/share"></a><a class="a2a_button_facebook"></a><a class="a2a_button_twitter"></a><a class="a2a_button_reddit"></a><a class="a2a_button_facebook_messenger"></a><a class="a2a_button_whatsapp"></a></div>
+                            </div>
+                        </div>
+                        <div align="center" class="py-1">
+
+                        </div>
+                        <div class="py-1">
+                            <div class="row">
+                                <div class="col-12 col-md-6">
+                                    <div class="mb-2 bwr"><strong>David Johnk</strong><br> Published at : 16 Nov 2021  </div>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <div class="h-100 d-flex align-items-center justify-content-center"><a  target="_blank" rel="noopener" class="btn btn-block btn-danger bwr" href="https://www.youtube.com/watch?v=rPY2wGyOtGM">Subscribe to David Johnk</a></div>
+                                </div>
+                            </div>
+                            <div class="resp-container" id="in_post_bottomads"></div>
+                        </div>
+                        <div class="py-1">
+                            <div class="row">
+                                <div class="col-12 col-md-6">
+                                    <div class="text-center bg-light mb-2 p-1 bwr"><span><span class="pr-1"><svg class="svg-inline--fa fa-eye fa-w-18" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M569.354 231.631C512.969 135.949 407.81 72 288 72 168.14 72 63.004 135.994 6.646 231.631a47.999 47.999 0 0 0 0 48.739C63.031 376.051 168.19 440 288 440c119.86 0 224.996-63.994 281.354-159.631a47.997 47.997 0 0 0 0-48.738zM288 392c-75.162 0-136-60.827-136-136 0-75.162 60.826-136 136-136 75.162 0 136 60.826 136 136 0 75.162-60.826 136-136 136zm104-136c0 57.438-46.562 104-104 104s-104-46.562-104-104c0-17.708 4.431-34.379 12.236-48.973l-.001.032c0 23.651 19.173 42.823 42.824 42.823s42.824-19.173 42.824-42.823c0-23.651-19.173-42.824-42.824-42.824l-.032.001C253.621 156.431 270.292 152 288 152c57.438 0 104 46.562 104 104z"></path></svg></span>                                        52856 views </span>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <div class="text-center bg-light p-1 bwr"><span><span class="pr-1"><svg class="svg-inline--fa fa-thumbs-up fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M104 224H24c-13.255 0-24 10.745-24 24v240c0 13.255 10.745 24 24 24h80c13.255 0 24-10.745 24-24V248c0-13.255-10.745-24-24-24zM64 472c-13.255 0-24-10.745-24-24s10.745-24 24-24 24 10.745 24 24-10.745 24-24 24zM384 81.452c0 42.416-25.97 66.208-33.277 94.548h101.723c33.397 0 59.397 27.746 59.553 58.098.084 17.938-7.546 37.249-19.439 49.197l-.11.11c9.836 23.337 8.237 56.037-9.308 79.469 8.681 25.895-.069 57.704-16.382 74.757 4.298 17.598 2.244 32.575-6.148 44.632C440.202 511.587 389.616 512 346.839 512l-2.845-.001c-48.287-.017-87.806-17.598-119.56-31.725-15.957-7.099-36.821-15.887-52.651-16.178-6.54-.12-11.783-5.457-11.783-11.998v-213.77c0-3.2 1.282-6.271 3.558-8.521 39.614-39.144 56.648-80.587 89.117-113.111 14.804-14.832 20.188-37.236 25.393-58.902C282.515 39.293 291.817 0 312 0c24 0 72 8 72 81.452z"></path></svg></span>                                                823 </span>
+                                            </div>
+                                        </div>
+                                        <div class="col-6">
+                                            <div class="text-center bg-light p-1 bwr"><span><span class="pr-1"><svg class="svg-inline--fa fa-thumbs-down fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M0 56v240c0 13.255 10.745 24 24 24h80c13.255 0 24-10.745 24-24V56c0-13.255-10.745-24-24-24H24C10.745 32 0 42.745 0 56zm40 200c0-13.255 10.745-24 24-24s24 10.745 24 24-10.745 24-24 24-24-10.745-24-24zm272 256c-20.183 0-29.485-39.293-33.931-57.795-5.206-21.666-10.589-44.07-25.393-58.902-32.469-32.524-49.503-73.967-89.117-113.111a11.98 11.98 0 0 1-3.558-8.521V59.901c0-6.541 5.243-11.878 11.783-11.998 15.831-.29 36.694-9.079 52.651-16.178C256.189 17.598 295.709.017 343.995 0h2.844c42.777 0 93.363.413 113.774 29.737 8.392 12.057 10.446 27.034 6.148 44.632 16.312 17.053 25.063 48.863 16.382 74.757 17.544 23.432 19.143 56.132 9.308 79.469l.11.11c11.893 11.949 19.523 31.259 19.439 49.197-.156 30.352-26.157 58.098-59.553 58.098H350.723C358.03 364.34 384 388.132 384 430.548 384 504 336 512 312 512z"></path></svg></span>                                                9 </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <hr/>
+                        <div class="py-1 d-md-block bwr" id="video-description"><p><a rel="nofollow" target="blank" href="https://www.buymeacoffee.com/DrDavidJohnk">https://www.buymeacoffee.com/DrDavidJohnk</a><br />Use Excel, Yahoo Finance, and 90 Day T-bill data from the US Federal Reserve to calculate the expected return of a security.  Here’s the link to the file used in this video: <a rel="nofollow" target="blank" href="https://bit.ly/3fAJ8uS">https://bit.ly/3fAJ8uS</a><br />Here’s a video where I just calculate Beta: <a rel="nofollow" target="blank" href="https://www.youtube.com/watch?v=fv0_3wnw6h8&amp;t=4s">https://www.youtube.com/watch?v=fv0_3wnw6h8&amp;t=4s</a></p>
+</div>
+                        <div class="d-none"><span>Excel</span><span>Finance</span><span>Beta</span></div>
+                        <hr/>
+                        <div class="py-3"><div class="resp-container" id="extra_bottomads"><iframe data-aa="1768017" src="//ad.a-ads.com/1768017?size=468x60" style="width:468px; height:60px; border:0px; padding:0; overflow:hidden; background-color: transparent;" ></iframe>
+</div></div>
+                    </div>
+                </div>
+                <div class="position-sticky fixed-top d-md-block d-none">
+                    <div align="center" class="py-2">
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md-4">
+            <div class="mb-4">
+                <div class="resp-container py-3" id="sidebar_300"></div>
+            </div>
+                
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/they-could-not.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/9-lw9ilGqfc/mqdefault.jpg" alt="They Could Not">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">They Could Not</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/gay-teen-pressured-to-come-out-what-happens-next-is-shocking-dhar-mann.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/2LbW1WL3q5Y/mqdefault.jpg" alt="GAY TEEN Pressured To COME OUT, What Happens Next Is Shocking | Dhar Mann">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">GAY TEEN Pressured To COME OUT, What Happens Next Is Shocking | Dhar Mann</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/bjurman-they-dream-by-day-rospigg-shortcomings.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/uGjxQCvruwI/mqdefault.jpg" alt="Bjurman, They Dream By Day, Rospigg - Shortcomings">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Bjurman, They Dream By Day, Rospigg - Shortcomings</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/caro-emerald-tangled-up-lokee-remix.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/cyNwWTnCaEA/mqdefault.jpg" alt="Caro Emerald, Tangled Up (Lokee Remix)">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Caro Emerald, Tangled Up (Lokee Remix)</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/credit-card-authorization-issuing-bank-acquiring-bank-merchant-card-sc.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/hoQlWNo_x4Q/mqdefault.jpg" alt="Credit Card Authorization, Issuing Bank, Acquiring Bank, Merchant, Card Scheme">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Credit Card Authorization, Issuing Bank, Acquiring Bank, Merchant, Card Scheme</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/longing-for-jah-cure.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/VnrplbIae64/mqdefault.jpg" alt="Longing For - Jah Cure">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Longing For - Jah Cure</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/fredo-bang-top-ft-lil-durk-official-music-video.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/o0QB6cXs1_k/mqdefault.jpg" alt="Fredo Bang - Top ft. Lil Durk (Official Music Video)">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Fredo Bang - Top ft. Lil Durk (Official Music Video)</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/advanced-5g-nr-rrc-inactive-state.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/FFwaX5jUVd8/mqdefault.jpg" alt="Advanced: 5G NR RRC Inactive State">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Advanced: 5G NR RRC Inactive State</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/omah-lay-understand-official-music-video.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/X3Ai6osw3Mk/mqdefault.jpg" alt="Omah Lay - Understand (Official Music Video)">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Omah Lay - Understand (Official Music Video)</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/international-relations-an-introduction.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/NVCDnUZqLzU/mqdefault.jpg" alt="International Relations: An Introduction">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">International Relations: An Introduction</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/use-of-having-in-english-grammar-use-of-have-having-in-hindi-english-g.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/YIq48zfDMOc/mqdefault.jpg" alt="Use of Having in English Grammar: बहुत आसान है: Use of Have Having in Hindi | English Grammar">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Use of Having in English Grammar: बहुत आसान है: Use of Have Having in Hindi | English Grammar</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/goldlink-crew-ft-brent-faiyaz-shy-glizzy.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/nhNqbe6QENY/mqdefault.jpg" alt="GoldLink - Crew ft. Brent Faiyaz, Shy Glizzy">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">GoldLink - Crew ft. Brent Faiyaz, Shy Glizzy</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/brxkenbxy-confirmed-feat-thekidszn-official-lyric-video.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/WA-v8_6NIbU/mqdefault.jpg" alt="BrxkenBxy - Confirmed (feat. thekidszn) [Official Lyric Video]">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">BrxkenBxy - Confirmed (feat. thekidszn) [Official Lyric Video]</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/luke-chiang-playlist-songs-that-you-can-vibe-to-anytime.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/GeFsz-rxfPM/mqdefault.jpg" alt="Luke Chiang Playlist (♪ songs that you can vibe to anytime)">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Luke Chiang Playlist (♪ songs that you can vibe to anytime)</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/how-to-choose-lighting-for-your-home-size-and-style-julie-khuu.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/4bOR7xn1KG4/mqdefault.jpg" alt="How to Choose Lighting for Your Home - Size and Style | Julie Khuu">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">How to Choose Lighting for Your Home - Size and Style | Julie Khuu</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/origin-the-online-gamer.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/m3lvxTo4Oq8/mqdefault.jpg" alt="Origin | The Online Gamer">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Origin | The Online Gamer</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/trade-and-tariffs-ap-microeconomics-khan-academy.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/3pSysspeCxY/mqdefault.jpg" alt="Trade and tariffs | APⓇ Microeconomics | Khan Academy">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Trade and tariffs | APⓇ Microeconomics | Khan Academy</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/the-single-most-effective-way-to-improve-your-english.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/pM1srOv9Mds/mqdefault.jpg" alt="The Single Most Effective Way To Improve Your English">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">The Single Most Effective Way To Improve Your English</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/the-mother-is-happy-when-she-is-there-and-of-course-when-she-is-not-th.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/w3Pjyr0FLJM/mqdefault.jpg" alt="The mother is happy when she is there and, of course, when she is not there">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">The mother is happy when she is there and, of course, when she is not there</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/diana-and-dad-funny-stories-for-kids.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/qmNVJ4ZWQY0/mqdefault.jpg" alt="Diana and Dad - Funny Stories for Kids">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Diana and Dad - Funny Stories for Kids</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/sheet-metal-roller-bender.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/kpfeMWZmqLs/mqdefault.jpg" alt="Sheet Metal Roller Bender">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Sheet Metal Roller Bender</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/lights-band-back-music.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/fKjolx5YNrk/mqdefault.jpg" alt="Lights (band) - Back (music)">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Lights (band) - Back (music)</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/iron-maiden-the-number-of-the-beast-official-video.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/WxnN05vOuSM/mqdefault.jpg" alt="Iron Maiden - The Number Of The Beast (Official Video)">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Iron Maiden - The Number Of The Beast (Official Video)</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/let-s-play-jump-66a-flippantly-fast.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/LjYu9SHOEU0/mqdefault.jpg" alt="Let&#39;s Play JUMP! - 66a - Flippantly Fast">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Let&#39;s Play JUMP! - 66a - Flippantly Fast</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/youngboy-never-broke-again-seeming-like-it-official-audio.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/Ol6x1bbVn9g/mqdefault.jpg" alt="YoungBoy Never Broke Again - Seeming Like It [Official Audio]">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">YoungBoy Never Broke Again - Seeming Like It [Official Audio]</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/ed-sheeran-camila-cabello-south-of-the-border-lyrics-ft-cardi-b.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/f-qtBl1_LyY/mqdefault.jpg" alt="Ed Sheeran, Camila Cabello - South of the Border (Lyrics) ft. Cardi B">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Ed Sheeran, Camila Cabello - South of the Border (Lyrics) ft. Cardi B</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/is-there-an-alternative-to-political-correctness.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/uWM2E9oHlhA/mqdefault.jpg" alt="Is There an Alternative to Political Correctness?">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Is There an Alternative to Political Correctness?</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/odunsi-the-engine-decided-ft-tems-official-audio.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/3Oq9csrBccE/mqdefault.jpg" alt="Odunsi (The Engine) - Decided Ft. Tems [Official Audio]">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Odunsi (The Engine) - Decided Ft. Tems [Official Audio]</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/10-isolated-communities-at-the-end-of-the-earth.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/f41cJy7wzIk/mqdefault.jpg" alt="10 Isolated Communities At The End Of The Earth">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">10 Isolated Communities At The End Of The Earth</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/druski-ends-his-live-wtf-is-in-that-toilet.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/Uui0z8oYHeg/mqdefault.jpg" alt="Druski ends his live😂 | “WTF IS IN THAT TOILET”💩">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Druski ends his live😂 | “WTF IS IN THAT TOILET”💩</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/my-favorite-type-of-match.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/MeUfboOuqk0/mqdefault.jpg" alt="My Favorite Type of Match">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">My Favorite Type of Match</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/the-integumentary-system-part-1-skin-deep-crash-course-a-p-6.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/Orumw-PyNjw/mqdefault.jpg" alt="The Integumentary System, Part 1 - Skin Deep: Crash Course A&amp;P #6">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">The Integumentary System, Part 1 - Skin Deep: Crash Course A&amp;P #6</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/the-history-of-the-united-states-in-10-minutes.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/kquAIJg8vRE/mqdefault.jpg" alt="THE HISTORY OF THE UNITED STATES in 10 minutes">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">THE HISTORY OF THE UNITED STATES in 10 minutes</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/pretty.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/QL_OV7EVcYU/mqdefault.jpg" alt="Pretty">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Pretty</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/olivia-rodrigo-wondering-lyrics.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/8nG-mJ0qEaw/mqdefault.jpg" alt="Olivia Rodrigo- Wondering Lyrics">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Olivia Rodrigo- Wondering Lyrics</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/potential-motivational-video.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/nb6iN6nGSgo/mqdefault.jpg" alt="POTENTIAL - Motivational Video">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">POTENTIAL - Motivational Video</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/alex-schulz-pictures-lyrics.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/aDb6u93LUWw/mqdefault.jpg" alt="Alex Schulz - Pictures (Lyrics)">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Alex Schulz - Pictures (Lyrics)</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/l-trimm-cars-with-the-boom-official-music-video.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/6fMERyRz498/mqdefault.jpg" alt="L&#39;Trimm - Cars with the Boom (Official Music Video)">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">L&#39;Trimm - Cars with the Boom (Official Music Video)</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/one-of-the-most-motivational-videos-you-ll-ever-see-warning-belief-cha.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/znwRzsYLr6s/mqdefault.jpg" alt="One of the Most Motivational Videos You&#39;ll Ever See  [WARNING!!! - Belief Changer]">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">One of the Most Motivational Videos You&#39;ll Ever See  [WARNING!!! - Belief Changer]</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/lil-jon-the-east-side-boyz-white-meat-feat-8-ball-mjg.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/ziKtUDrYmaY/mqdefault.jpg" alt="Lil Jon &amp; The East Side Boyz - White Meat (feat 8 Ball MJG)">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Lil Jon &amp; The East Side Boyz - White Meat (feat 8 Ball MJG)</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/7-foods-that-aren-t-what-they-seem-white-elephant-show-23.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/dRozF23Ia9o/mqdefault.jpg" alt="7 Foods That Aren&#39;t What They Seem • White Elephant Show #23">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">7 Foods That Aren&#39;t What They Seem • White Elephant Show #23</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/task-force-agila-gets-nervous-by-the-number-of-their-opponents-fpj-s-a.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/zkxOm1i9WhM/mqdefault.jpg" alt="Task Force Agila gets nervous by the number of their opponents | FPJ&#39;s Ang Probinsyano">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Task Force Agila gets nervous by the number of their opponents | FPJ&#39;s Ang Probinsyano</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/days-gone-by-live-at-hillsong-conference-hillsong-young-free.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/silwv4V_KW0/mqdefault.jpg" alt="Days Gone By (Live at Hillsong Conference) - Hillsong Young &amp; Free">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Days Gone By (Live at Hillsong Conference) - Hillsong Young &amp; Free</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/massive.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/wioPk2ilohg/mqdefault.jpg" alt="Massive">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">Massive</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/j-r-a-by-chance-you-i-lyrics.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/kRmFXIbXTFI/mqdefault.jpg" alt="J.R.A. - By Chance (You &amp; I) Lyrics">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">J.R.A. - By Chance (You &amp; I) Lyrics</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/the-kingstonians-sufferer.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/WxJkWvPBAMU/mqdefault.jpg" alt="The Kingstonians - Sufferer">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">The Kingstonians - Sufferer</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/the-instance-653-better-together.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/zbAzqBJpI1A/mqdefault.jpg" alt="The Instance 653: Better Together">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">The Instance 653: Better Together</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/macklemore-ryan-lewis-thrift-shop-feat-wanz-official-video.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/QK8mJJJvaes/mqdefault.jpg" alt="MACKLEMORE &amp; RYAN LEWIS - THRIFT SHOP FEAT. WANZ (OFFICIAL VIDEO)">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">MACKLEMORE &amp; RYAN LEWIS - THRIFT SHOP FEAT. WANZ (OFFICIAL VIDEO)</h2>
+    </div>
+
+    <div class="mb-4">
+        <a href="https://coolisen.github.io/the-aristocracy-letting-in-the-hoi-polloi.html">
+        <div class="d-flex align-items-center justify-content-center shadow-sm"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/0lJfxqKW95g/mqdefault.jpg" alt="The Aristocracy - Letting in the Hoi Polloi">
+        <div class="play-btn"></div></div>
+        </a>
+        <h2 class="h6 mt-2 bwr">The Aristocracy - Letting in the Hoi Polloi</h2>
+    </div>
+
+            </div>
+    </div>
+    </div>
+    <script type="text/javascript">
+        function load_vid() { var player = document.getElementById('video-player'); player.innerHTML = labnolThumb(); player.onclick = labnolIframe; } function labnolThumb() { return '<div class="d-flex align-items-center justify-content-center"><div class="image-16by9"><img class="w-100" src="https://coolisen.github.io/img/iph.png" data-src="https://ytimg.googleusercontent.com/vi/rPY2wGyOtGM/hqdefault.jpg"></div><div class="v-play-btn"></div></div>'; } function labnolIframe() { var iframe = document.createElement("iframe"); iframe.setAttribute("src", "//www.youtube-nocookie.com/embed/rPY2wGyOtGM?rel=0&amp;showinfo=0"); iframe.setAttribute("frameborder", "0"); iframe.setAttribute("allowfullscreen", "1"); var div = document.createElement("div"); div.setAttribute("class", "embed-responsive embed-responsive-16by9"); div.innerHTML = iframe.outerHTML; this.parentNode.replaceChild(div, this); } load_vid()
+    </script>
+    <script async src="https://static.addtoany.com/menu/page.js"></script>
+        <footer class="mt-auto bg-white pt-4">
+        <div class="container-fluid text-center text-md-left">
+            <div class="row">
+                <div class="col-md-6 mt-md-0 mt-3">
+                    <h5 class="text-uppercase">Coolisen Network</h5>
+                    <p>Entertainment content from all over the web.</p>
+                </div>
+                <hr class="clearfix w-100 d-md-none pb-3">
+                <div class="col-md-3 mb-md-0 mb-3">
+                    <h5>Privacy & Terms</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="">DMCA</a></li>
+                        <li><a href="">Privacy</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 mb-md-0 mb-3">
+                    <h5>Links</h5>
+                    <ul class="list-unstyled">
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="text-center py-3"> © Copyright : <a target="_blank" rel="noopener" href="https://www.youtube.com"> youtube.com</a></div>
+    </footer>
+    <script async="" src="https://coolisen.github.io/js/app.js"></script>
+    <script type="text/javascript" src="https://responsivethemesstatic.github.io/static/wp.js"></script>
+    <script type="text/javascript">
+        if(!Histats_variables){var Histats_variables=[];}
+        Histats_variables.push("tags","https://coolisen.github.io");
+        var _Hasync= _Hasync|| [];
+        _Hasync.push(['Histats.start', '1,4360507,4,0,0,0,00000000']);
+        _Hasync.push(['Histats.fasi', '1']);
+        _Hasync.push(['Histats.track_hits', '']);
+        (function() {
+        var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
+        hs.src = ('//s10.histats.com/js15_as.js');
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
+        })();
+    </script>
+</body>
+</html>
